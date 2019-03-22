@@ -9,7 +9,8 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-particles-webgl": "link:..",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^2.1.8",
+    "three": "^0.102.1"
   },
   "scripts": {
     "start": "react-scripts start",
