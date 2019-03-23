@@ -30,11 +30,15 @@
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/plugin-transform-runtime": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@svgr/rollup": "^4.1.0",
     "babel-eslint": "9",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "cross-env": "^5.2.0",
     "eslint": "5.12.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -43,6 +47,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "gh-pages": "^2.0.1",
     "prettier": "^1.16.4",
     "react": "^16.8.5",
@@ -62,6 +67,7 @@
   "dependencies": {
     "hex-rgb": "^4.0.0",
     "is-hexcolor": "^1.0.0",
+    "react-scripts": "^2.1.8",
     "react-three-fiber": "^1.5.3",
     "three-orbitcontrols": "^2.102.1"
   }

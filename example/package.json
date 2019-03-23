@@ -5,11 +5,17 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@tim-soft/react-dat-gui": "^2.2.5",
     "prop-types": "^15.6.2",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/reac-dom",
+    "react-highlight": "^0.12.0",
     "react-particles-webgl": "link:..",
     "react-scripts": "^2.1.8",
+    "react-scrollbars-custom": "3",
+    "react-spring": "^8.0.18",
+    "styled-components": "^4.1.3",
+    "styled-normalize": "^8.0.6",
     "three": "^0.102.1"
   },
   "scripts": {

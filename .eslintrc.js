@@ -9,7 +9,7 @@ module.exports = {
   env: {
     es6: true
   },
-  plugins: ['prettier', 'import'],
+  plugins: ['prettier', 'import', 'react-hooks'],
   globals: {
     document: true,
     window: true,
@@ -29,6 +29,10 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     'import/no-extraneous-dependencies': 0,
     'prettier/prettier': 'error',
-    'react/destructuring-assignment': 0
+    'react/destructuring-assignment': 0,
+    // Enforce React Hooks rules
+    // https://www.npmjs.com/package/eslint-plugin-react-hooks
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   }
 };
