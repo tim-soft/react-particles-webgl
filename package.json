@@ -9,6 +9,14 @@
     "url": "https://github.com/tim-soft/react-particles-webgl/issues"
   },
   "homepage": "https://next-portfolio-git-master.tim-soft.now.sh/particles",
+  "keywords": [
+    "react",
+    "fiber",
+    "three",
+    "particle",
+    "3D",
+    "canvas"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
