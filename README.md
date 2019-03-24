@@ -1,9 +1,20 @@
-# react-particles-webgl
+# React Particles WebGL
 
-> A 2D/3D particle library built on React, Three.js and WebGL
+> A 2D/3D particle library built with React, Three.js and WebGL
 
-[![npm](https://img.shields.io/npm/v/react-particles-webgl.svg?color=brightgreen&style=flat-square)](https://www.npmjs.com/package/react-particles-webgl)
+**react-particles-webgl** was inspired by the popular [particles.js](https://github.com/VincentGarreau/particles.js/) library and built with [react-three-fiber](https://github.com/drcmda/react-three-fiber) to offer smooth 60FPS high-count particle fields in both two and three dimension.
+
+Demo and config generator [https://next-portfolio-git-master.tim-soft.now.sh/particles](https://next-portfolio-git-master.tim-soft.now.sh/particles)
+
+[![npm](https://img.shields.io/npm/v/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://www.npmjs.com/package/react-particles-webgl)
 [![NPM](https://img.shields.io/npm/l/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://github.com/tim-soft/react-particles-webgl/blob/master/LICENSE)
+
+## ✨ Features
+
+- Simple drop-in usage, plays nice with SSR (the demo is running Next.js)
+- Smooth 60FPS particles and lines via WebGL
+- Full Three.js OrbitControls for extreme (optional) scene interactivity 
+- Highly customizable particles and lines
 
 ## Install
 
@@ -62,8 +73,9 @@ const config = {
     visible: true
   },
   /*
-   * The camera rig is comprised of OrbitControls
+   * The camera rig is comprised of Three.js OrbitControls
    * Pass any valid OrbitControls properties, consult docs for more info
+   * 
    * https://threejs.org/docs/#examples/controls/OrbitControls
    */
   cameraControls: {
@@ -121,4 +133,4 @@ Changes to the library code should hot reload in the demo app
 
 ## License
 
-MIT © [tim-soft](https://github.com/tim-soft)
+MIT © [Tim Ellenberger](https://github.com/tim-soft)
