@@ -3,7 +3,7 @@
 > A 2D/3D particle library built on React, Three.js and WebGL
 
 [![npm](https://img.shields.io/npm/v/react-particles-webgl.svg?color=brightgreen&style=flat-square)](https://www.npmjs.com/package/react-particles-webgl)
-![NPM](https://img.shields.io/npm/l/react-particles-webgl.svg?color=brightgreen&style=popout-square)]
+[![NPM](https://img.shields.io/npm/l/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://github.com/tim-soft/react-particles-webgl/blob/master/LICENSE)
 
 ## Install
 
