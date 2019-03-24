@@ -34,10 +34,10 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "prop-types": "^15.5.4",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "three": "^0.100.0"
+    "prop-types": ">=15.5.4",
+    "react": ">=16.8",
+    "react-dom": ">=16.8",
+    "three": ">=0.100"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
