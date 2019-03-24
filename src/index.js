@@ -1,15 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Canvas } from 'react-three-fiber';
 import ParticleField from './ParticleField';
-import config from './config';
+import initialConfig from './config';
 
 /**
  * Wraps a particle field in a Canvas
  */
-export default props => (
+const ParticleCanvas = ({ config }) => (
   <Canvas>
-    <ParticleField {...Object.assign({}, config, props)} />
+    <ParticleField {...Object.assign({}, initialConfig, config)} />
   </Canvas>
 );
 
-export const defaultConfig = { ...config };
+ParticleCanvas.propTypes = {
+  config: PropTypes.object
+};
+
+ParticleCanvas.defaultProps = {
+  config: {}
+};
+
+export default ParticleCanvas;
+
+export const defaultConfig = { ...initialConfig };

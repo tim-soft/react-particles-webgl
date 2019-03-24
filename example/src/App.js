@@ -32,7 +32,7 @@ export default class ParticlesDemo extends React.Component {
         {/* Config GUI */}
         <DatUI datConfig={datConfig} handleDatUpdate={this.handleDatUpdate} />
         {/* Particle Canvas */}
-        <ParticleField {...datConfig} />
+        <ParticleField config={datConfig} />
       </Container>
     );
   }
