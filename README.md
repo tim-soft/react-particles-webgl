@@ -2,12 +2,15 @@
 
 > A 2D/3D particle library built with React, Three.js and WebGL
 
-**react-particles-webgl** was inspired by the popular [particles.js](https://github.com/VincentGarreau/particles.js/) library and built with [react-three-fiber](https://github.com/drcmda/react-three-fiber) to offer smooth 60FPS high-count particle fields in both two and three dimension.
+**react-particles-webgl** was inspired by the popular [particles.js](https://github.com/VincentGarreau/particles.js/) library and built with [react-three-fiber](https://github.com/drcmda/react-three-fiber) to offer _smooth_ **60FPS** high-count particle fields in both two and three dimension.
 
 Demo and config generator [https://next-portfolio-git-master.tim-soft.now.sh/particles](https://next-portfolio-git-master.tim-soft.now.sh/particles)
 
 [![npm](https://img.shields.io/npm/v/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://www.npmjs.com/package/react-particles-webgl)
 [![NPM](https://img.shields.io/npm/l/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://github.com/tim-soft/react-particles-webgl/blob/master/LICENSE)
+
+[![2D "Particles.js" Canvas](https://i.imgur.com/kpIUdV9.jpg)](https://next-portfolio-git-master.tim-soft.now.sh/particles)
+[![3D Particle Field](https://i.imgur.com/M34XUy6.jpg)](https://next-portfolio-git-master.tim-soft.now.sh/particles)
 
 ## ✨ Features
 
