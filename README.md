@@ -2,7 +2,7 @@
 
 > A 2D/3D particle library built with React, Three.js and WebGL
 
-**react-particles-webgl** was inspired by the popular [particles.js](https://github.com/VincentGarreau/particles.js/) library and built with [react-three-fiber](https://github.com/drcmda/react-three-fiber) to offer _smooth_ **60FPS** high-count particle fields in both two and three dimension.
+**react-particles-webgl** was inspired by the popular [particles.js](https://github.com/VincentGarreau/particles.js/) library and built with [react-three-fiber](https://github.com/drcmda/react-three-fiber) to offer _smooth_ **60FPS** high-count particle fields in both two and three dimensions.
 
 **Demo and config generator** [https://next-portfolio-git-master.tim-soft.now.sh/particles](https://next-portfolio-git-master.tim-soft.now.sh/particles)
 
@@ -18,7 +18,7 @@
 
 - Simple drop-in usage, plays nice with SSR (the demo is running Next.js)
 - Smooth 60FPS particles and lines via WebGL
-- Full Three.js OrbitControls for extreme (optional) scene interactivity 
+- Full Three.js OrbitControls for extreme (optional) scene interactivity
 - Highly customizable particles and lines
 
 ## Install
@@ -28,6 +28,7 @@ yarn add react-particles-webgl three
 ```
 
 ## Usage
+
 ```jsx
 import React from 'react';
 import ParticleField from 'react-particles-webgl';
@@ -38,9 +39,9 @@ import ParticleField from 'react-particles-webgl';
  * Any option passed in via props will overwrite the default config
  */
 const config = {
-  // Display reference cube, useful for orienting the field 
+  // Display reference cube, useful for orienting the field
   showCube: true,
-  // '2D' or '3D' particle field 
+  // '2D' or '3D' particle field
   dimension: '3D',
   // Maximum velocity of particles
   velocity: 2,
@@ -80,7 +81,7 @@ const config = {
   /*
    * The camera rig is comprised of Three.js OrbitControls
    * Pass any valid OrbitControls properties, consult docs for more info
-   * 
+   *
    * https://threejs.org/docs/#examples/controls/OrbitControls
    */
   cameraControls: {
@@ -96,7 +97,7 @@ const config = {
     // Rotation speed -- higher is faster
     autoRotateSpeed: 0.3,
     // If true, camera position will be reset whenever any option changes (including this one)
-    // Useful when turning off autoRotate, the camera will return to FOV where scene fits to canvas 
+    // Useful when turning off autoRotate, the camera will return to FOV where scene fits to canvas
     resetCameraFlag: false
   }
 };
