@@ -65,7 +65,7 @@ const ParticleField = ({
     });
 
     return controls;
-  }, [cameraControls]);
+  }, [camera, cameraControls, canvas, size.height, size.width]);
 
   // When the resetCameraFlag option is toggled to 'true', reset camera position
   if (cameraControls.resetCameraFlag === true) {
@@ -78,13 +78,7 @@ const ParticleField = ({
     lineMeshMaterial,
     linePositions,
     lineColors
-  ] = useMemo(() => computeLines({ particles, lines }), [
-    particles.count,
-    lines.visible,
-    lines.colorMode,
-    lines.color,
-    lines.transparency
-  ]);
+  ] = useMemo(() => computeLines({ particles, lines }), [particles, lines]);
 
   // Compute point cloud
   const [
@@ -95,21 +89,7 @@ const ParticleField = ({
     bounds
   ] = useMemo(
     () => computeParticles({ particles, dimension, size, r, velocity }),
-    [
-      particles.count,
-      particles.minSize,
-      particles.maxSize,
-      particles.shape,
-      particles.visible,
-      particles.boundingBox,
-      particles.colorMode,
-      particles.color,
-      particles.transparency,
-      showCube,
-      dimension,
-      velocity,
-      size
-    ]
+    [particles, dimension, size, velocity]
   );
 
   // Assign state to animation ref
@@ -130,11 +110,12 @@ const ParticleField = ({
 
   // Direct access to render loop, executes on each frame
   // State changes must be passed into hook via refs
+  // useRender() contents are called in a requestAnimationFrame()
   useRender(() => {
     // Enables damping of OrbitControls
-    requestAnimationFrame(() => controlsRef.current.update());
+    controlsRef.current.update();
     // Animate current state of particles + lines
-    requestAnimationFrame(() => animate(animation.current));
+    animate(animation.current);
   });
 
   return (
