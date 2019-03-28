@@ -20,7 +20,8 @@ const ParticleField = ({
   showCube,
   cameraControls,
   dimension,
-  velocity
+  velocity,
+  boundaryType
 }) => {
   const controlsRef = useRef(0);
   const animation = useRef(0);
@@ -105,7 +106,9 @@ const ParticleField = ({
     particlesData,
     particlePositions,
     linePositions,
-    lineColors
+    lineColors,
+    showLines: lines.visible,
+    boundaryType
   };
 
   // Direct access to render loop, executes on each frame
@@ -156,6 +159,7 @@ const ParticleField = ({
 ParticleField.propTypes = {
   showCube: PropTypes.bool.isRequired,
   dimension: PropTypes.oneOf(['2D', '3D']).isRequired,
+  boundaryType: PropTypes.oneOf(['bounce', 'passthru']).isRequired,
   velocity: PropTypes.number.isRequired,
   lines: PropTypes.shape({
     colorMode: PropTypes.oneOf(['rainbow', 'solid']),

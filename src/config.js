@@ -7,6 +7,7 @@ export default {
   showCube: true,
   dimension: '3D',
   velocity: 2,
+  boundaryType: 'bounce',
   lines: {
     colorMode: 'rainbow',
     color: '#351CCB',

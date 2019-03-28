@@ -95,6 +95,11 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
       <DatBoolean path="lines.visible" label="Show Lines" />
       <DatBoolean path="showCube" label="Show Cube" />
       <DatSelect label="Dimsion" path="dimension" options={['2D', '3D']} />
+      <DatSelect
+        label="Boundary Type"
+        path="boundaryType"
+        options={['bounce', 'passthru']}
+      />
       <DatNumber path="velocity" label="Velocity" min={0} max={30} step={0.1} />
 
       <DatFolder title="Lines" closed={false}>
@@ -146,7 +151,7 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
           path="particles.count"
           label="Particle Count"
           min={0}
-          max={1500}
+          max={5500}
           step={1}
         />
         <DatNumber

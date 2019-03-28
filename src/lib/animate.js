@@ -4,6 +4,76 @@
 /* eslint-disable no-param-reassign */
 
 /**
+ * Calculate new velocity/position of current particle if it hits x, y, or z boundary
+ *
+ * Controlled by boundaryType, either 'bounce' or 'passthru'
+ */
+const handleBoundary = ({
+  /* The boundaries of the particle field */
+  bounds,
+  /* Either 'bounce' or 'passthru' */
+  boundaryType,
+  /* The x, y, z positions of current particle */
+  particlePositions,
+  /* The x, y, z velocities of current particle */
+  particleData,
+  i
+}) => {
+  // Get the boundary points of the canvas
+  // Useful for knowing when a particle is at the edge of the canvas
+  const { xBounds, yBounds, zBounds } = bounds;
+
+  // Make the current particle "transport" from one side of boundary to the other
+  // The particles feel like they 'disappear' and new ones are 'appearing'
+  if (boundaryType === 'passthru') {
+    // If a particle crosses the x-axis edge, send particle to the opposite x-axis edge
+    if (particlePositions[i * 3] < -xBounds / 2) {
+      particlePositions[i * 3] = xBounds / 2;
+      particleData.velocity.x = particleData.velocity.x;
+    } else if (particlePositions[i * 3] > xBounds / 2) {
+      particlePositions[i * 3] = -xBounds / 2;
+      particleData.velocity.x = particleData.velocity.x;
+    }
+
+    // If a particle crosses the y-axis edge, send particle to the opposite y-axis edge
+    if (particlePositions[i * 3 + 1] < -yBounds / 2) {
+      particlePositions[i * 3 + 1] = yBounds / 2;
+      particleData.velocity.y = particleData.velocity.y;
+    } else if (particlePositions[i * 3 + 1] > yBounds / 2) {
+      particlePositions[i * 3 + 1] = -yBounds / 2;
+      particleData.velocity.y = particleData.velocity.y;
+    }
+
+    // If a particle crosses the y-axis edge, send particle to the opposite y-axis edge
+    if (particlePositions[i * 3 + 2] < -zBounds / 2) {
+      particlePositions[i * 3 + 2] = zBounds / 2;
+      particleData.velocity.z = particleData.velocity.z;
+    } else if (particlePositions[i * 3 + 2] > zBounds / 2) {
+      particlePositions[i * 3 + 2] = -zBounds / 2;
+      particleData.velocity.z = particleData.velocity.z;
+    }
+  } else if (boundaryType === 'bounce') {
+    // Make the current particle "bounce" off of the "bounds" of the canvas
+    // The particles behave like balls thrown at a wall
+    if (
+      particlePositions[i * 3] < -xBounds / 2 ||
+      particlePositions[i * 3] > xBounds / 2
+    )
+      particleData.velocity.x = -particleData.velocity.x;
+    if (
+      particlePositions[i * 3 + 1] < -yBounds / 2 ||
+      particlePositions[i * 3 + 1] > yBounds / 2
+    )
+      particleData.velocity.y = -particleData.velocity.y;
+    if (
+      particlePositions[i * 3 + 2] < -zBounds / 2 ||
+      particlePositions[i * 3 + 2] > zBounds / 2
+    )
+      particleData.velocity.z = -particleData.velocity.z;
+  }
+};
+
+/**
  * Animates an array of particles and lines over a three dimensional space
  *
  * This function is meant to be called from the useRender render loop -- ran on each frame
@@ -19,12 +89,10 @@ const animate = ({
   particlePositions,
   linePositions,
   lineColors,
-  bounds
+  bounds,
+  showLines,
+  boundaryType
 }) => {
-  // Get the boundary points of the canvas
-  // Useful for knowing when a particle is at the edge of the canvas
-  const { xBounds, yBounds, zBounds } = bounds;
-
   let vertexpos = 0;
   let colorpos = 0;
   let numConnected = 0;
@@ -41,25 +109,21 @@ const animate = ({
     particlePositions[i * 3 + 1] += particleData.velocity.y;
     particlePositions[i * 3 + 2] += particleData.velocity.z;
 
-    // Make the current particle "bounce" off of the "bounds" of the canvas
-    if (
-      particlePositions[i * 3 + 1] < -yBounds / 2 ||
-      particlePositions[i * 3 + 1] > yBounds / 2
-    )
-      particleData.velocity.y = -particleData.velocity.y;
-    if (
-      particlePositions[i * 3] < -xBounds / 2 ||
-      particlePositions[i * 3] > xBounds / 2
-    )
-      particleData.velocity.x = -particleData.velocity.x;
-    if (
-      particlePositions[i * 3 + 2] < -zBounds / 2 ||
-      particlePositions[i * 3 + 2] > zBounds / 2
-    )
-      particleData.velocity.z = -particleData.velocity.z;
+    // Calculate new velocity/position of current particle if it hits x, y, or z boundary
+    // Controlled by boundaryType, either 'bounce' or 'passthru'
+    handleBoundary({
+      bounds,
+      boundaryType,
+      particlePositions,
+      particleData,
+      i
+    });
 
-    // Skip to next particle if we are intentionally no drawing lines
-    if (limitConnections && particleData.numConnections >= maxConnections)
+    // Skip to next particle if we are intentionally not drawing lines
+    if (
+      !showLines ||
+      (limitConnections && particleData.numConnections >= maxConnections)
+    )
       continue;
 
     // Calculate the distance between particles to find nearest-neighbors
