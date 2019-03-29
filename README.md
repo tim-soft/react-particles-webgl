@@ -49,6 +49,17 @@ const config = {
   boundaryType: 'bounce',
   // Maximum velocity of particles
   velocity: 2,
+  // Min/Max multipliers which constraint how particles move in each direction
+  // The default values here allow for particles to move in completely random x, y, z directions
+  // See the "Snowfall" preset for an example of how to use these values
+  direction: {
+    xMin: -1,
+    xMax: 1,
+    yMin: -1,
+    yMax: 1,
+    zMin: -1,
+    zMax: 1
+  },
   lines: {
     // 'rainbow' or 'solid' color of lines
     colorMode: 'rainbow',
