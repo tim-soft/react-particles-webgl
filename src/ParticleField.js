@@ -17,6 +17,7 @@ const r = 400;
 const ParticleField = ({
   particles,
   lines,
+  direction,
   showCube,
   cameraControls,
   dimension,
@@ -89,8 +90,9 @@ const ParticleField = ({
     particlePositions,
     bounds
   ] = useMemo(
-    () => computeParticles({ particles, dimension, size, r, velocity }),
-    [particles, dimension, size, velocity]
+    () =>
+      computeParticles({ particles, dimension, direction, size, r, velocity }),
+    [particles, dimension, direction, size, velocity]
   );
 
   // Assign state to animation ref
@@ -161,6 +163,14 @@ ParticleField.propTypes = {
   dimension: PropTypes.oneOf(['2D', '3D']).isRequired,
   boundaryType: PropTypes.oneOf(['bounce', 'passthru']).isRequired,
   velocity: PropTypes.number.isRequired,
+  direction: PropTypes.shape({
+    xMin: PropTypes.number,
+    xMax: PropTypes.number,
+    yMin: PropTypes.number,
+    yMax: PropTypes.number,
+    zMin: PropTypes.number,
+    zMax: PropTypes.number
+  }).isRequired,
   lines: PropTypes.shape({
     colorMode: PropTypes.oneOf(['rainbow', 'solid']),
     color: PropTypes.string,

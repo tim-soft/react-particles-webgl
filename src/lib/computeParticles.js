@@ -10,7 +10,7 @@ import {
   getParticleFragmentShader
 } from '../shaders/ParticleShaders';
 
-export default ({ particles, dimension, size, r, velocity }) => {
+export default ({ particles, dimension, direction, size, r, velocity }) => {
   const {
     boundingBox,
     count,
@@ -60,11 +60,17 @@ export default ({ particles, dimension, size, r, velocity }) => {
     // Choose size of each particle
     particleSizes[i] = Math.random() * (maxSize - minSize) + minSize;
 
+    // Calculates a random number between given range
+    const getVelocityMultiplier = (min, max) =>
+      Math.random() * (max - min) + min;
+
+    const { xMin, xMax, yMin, yMax, zMin, zMax } = direction;
+
     particlesData.push({
       velocity: new Vector3(
-        -1 + Math.random() * velocity,
-        -1 + Math.random() * velocity,
-        -1 + Math.random() * velocity
+        getVelocityMultiplier(xMin, xMax) * velocity,
+        getVelocityMultiplier(yMin, yMax) * velocity,
+        getVelocityMultiplier(zMin, zMax) * velocity
       ),
       numConnections: 0
     });

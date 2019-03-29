@@ -8,6 +8,14 @@ export default {
   dimension: '3D',
   velocity: 2,
   boundaryType: 'bounce',
+  direction: {
+    xMin: -1,
+    xMax: 1,
+    yMin: -1,
+    yMax: 1,
+    zMin: -1,
+    zMax: 1
+  },
   lines: {
     colorMode: 'rainbow',
     color: '#351CCB',
