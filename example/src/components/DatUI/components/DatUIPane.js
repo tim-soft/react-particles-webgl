@@ -86,6 +86,43 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
                 autoRotateSpeed: 3,
                 resetCameraFlag: false
               }
+            },
+            Snowfall: {
+              ...defaultConfig,
+              showCube: false,
+              dimension: '3D',
+              velocity: 2,
+              boundaryType: 'passthru',
+              direction: {
+                ...defaultConfig.direction,
+                xMin: -0.6,
+                xMax: 0.3,
+                yMin: -1,
+                yMax: -0.6,
+                zMin: -0.6,
+                zMax: 0.3
+              },
+              lines: {
+                ...defaultConfig.lines,
+                visible: false
+              },
+              particles: {
+                ...defaultConfig.particles,
+                colorMode: 'solid',
+                color: '#ffffff',
+                transparency: 0.9,
+                shape: 'circle',
+                boundingBox: 'canvas',
+                count: 2500,
+                minSize: 1,
+                maxSize: 25,
+                visible: true
+              },
+              cameraControls: {
+                ...defaultConfig.cameraControls,
+                autoRotate: false,
+                resetCameraFlag: true
+              }
             }
           }
         ]}
@@ -101,6 +138,53 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
         options={['bounce', 'passthru']}
       />
       <DatNumber path="velocity" label="Velocity" min={0} max={30} step={0.1} />
+
+      <DatFolder title="Direction" closed={false}>
+        <DatNumber
+          path="direction.xMin"
+          label="X Min"
+          min={-1}
+          max={1}
+          step={0.1}
+        />
+        <DatNumber
+          path="direction.xMax"
+          label="X Max"
+          min={-1}
+          max={1}
+          step={0.1}
+        />
+
+        <DatNumber
+          path="direction.yMin"
+          label="Y Min"
+          min={-1}
+          max={1}
+          step={0.1}
+        />
+        <DatNumber
+          path="direction.yMax"
+          label="Y Max"
+          min={-1}
+          max={1}
+          step={0.1}
+        />
+
+        <DatNumber
+          path="direction.zMin"
+          label="Z Min"
+          min={-1}
+          max={1}
+          step={0.1}
+        />
+        <DatNumber
+          path="direction.zMax"
+          label="Z Max"
+          min={-1}
+          max={1}
+          step={0.1}
+        />
+      </DatFolder>
 
       <DatFolder title="Lines" closed={false}>
         <DatSelect
