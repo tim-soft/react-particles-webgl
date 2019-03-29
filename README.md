@@ -43,6 +43,10 @@ const config = {
   showCube: true,
   // '2D' or '3D' particle field
   dimension: '3D',
+  // 'bounce' or 'passthru'
+  // 'bounce' will make particles behave like balls thrown at a wall when hitting canvas boundaries
+  // 'passthru' particles will disappear after hitting canvas boundaries and be added back into the scene elsewhere
+  boundaryType: 'bounce',
   // Maximum velocity of particles
   velocity: 2,
   lines: {
