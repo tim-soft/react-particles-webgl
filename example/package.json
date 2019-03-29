@@ -21,13 +21,21 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "23.6.0",
+    "jest-puppeteer": "3.9.0",
+    "puppeteer": "^1.14.0"
+  }
 }

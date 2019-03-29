@@ -25,8 +25,7 @@
     "npm": ">=5"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
+    "test": "cd example && yarn test",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "yarn run build",
@@ -84,7 +83,6 @@
     "prettier": "^1.16.4",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-scripts": "^2.1.8",
     "rollup": "^1.7.3",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.2",
