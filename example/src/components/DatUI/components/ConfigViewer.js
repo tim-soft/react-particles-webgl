@@ -32,7 +32,7 @@ export default ConfigViewer;
 const ConfigContainer = styled.div`
   position: absolute;
   background: #1a1a1ad4;
-  min-height: 900px;
+  min-height: 1050px;
   color: white;
   width: 352px;
   padding: 10px;
