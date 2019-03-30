@@ -25,10 +25,13 @@ export default {
   external: id => !id.startsWith('.') && !id.startsWith(root),
   plugins: [
     babel({
+      exclude: 'node_modules/**',
       runtimeHelpers: true
     }),
     resolve(),
-    commonjs(),
+    commonjs({
+      include: 'node_modules/**'
+    }),
     filesize()
   ]
 };
