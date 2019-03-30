@@ -1,6 +1,6 @@
 {
   "name": "react-particles-webgl",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "description": "A 2D/3D particle library built on React, Three.js and WebGL",
   "author": "Tim Ellenberger <timellenberger@gmail.com>",
   "license": "MIT",
