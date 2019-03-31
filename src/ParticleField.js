@@ -30,8 +30,10 @@ const ParticleField = ({
 
   const { gl, canvas, camera, size } = useThree();
   // Scale rendering automatically to window DPI
+  // Pass this value to fragment shaders: gl_PointSize needs to scale against this value
   // https://threejs.org/docs/#api/en/renderers/WebGLRenderer.setPixelRatio
-  gl.setPixelRatio(window.devicePixelRatio);
+  const devicePixelRatio = window.devicePixelRatio.toFixed(1);
+  gl.setPixelRatio(devicePixelRatio);
 
   // Default distance from camera to particle field
   const distToParticles = 1750;
@@ -91,8 +93,16 @@ const ParticleField = ({
     bounds
   ] = useMemo(
     () =>
-      computeParticles({ particles, dimension, direction, size, r, velocity }),
-    [particles, dimension, direction, size, velocity]
+      computeParticles({
+        particles,
+        dimension,
+        devicePixelRatio,
+        direction,
+        size,
+        r,
+        velocity
+      }),
+    [particles, dimension, direction, devicePixelRatio, size, velocity]
   );
 
   // Assign state to animation ref

@@ -10,7 +10,15 @@ import {
   getParticleFragmentShader
 } from '../shaders/ParticleShaders';
 
-export default ({ particles, dimension, direction, size, r, velocity }) => {
+export default ({
+  particles,
+  dimension,
+  devicePixelRatio,
+  direction,
+  size,
+  r,
+  velocity
+}) => {
   const {
     boundingBox,
     count,
@@ -88,7 +96,11 @@ export default ({ particles, dimension, direction, size, r, velocity }) => {
 
   // Material for particle, use shaders to morph shape and color
   const pointMaterial = new ShaderMaterial({
-    vertexShader: getParticleVertexShader({ colorMode, color }),
+    vertexShader: getParticleVertexShader({
+      colorMode,
+      color,
+      devicePixelRatio
+    }),
     fragmentShader: getParticleFragmentShader({
       particleShape: shape,
       transparency

@@ -38,7 +38,11 @@ const rainbowVertextColors = `
  * This shader uses the position of particles to determine their color
  * and change them as they move
  */
-export const getParticleVertexShader = ({ colorMode, color }) => `
+export const getParticleVertexShader = ({
+  colorMode,
+  color,
+  devicePixelRatio
+}) => `
 // Size attribute for particle geometry
 attribute float size;
 
@@ -47,7 +51,7 @@ varying vec3 vColor;
 
 void main() {
   vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-  gl_PointSize = size * ( 300.0 / -mvPosition.z );
+  gl_PointSize = size * ( 300.0 / -mvPosition.z ) * ${devicePixelRatio};
   gl_Position = projectionMatrix * mvPosition;
 
   ${colorMode === 'rainbow' ? rainbowVertextColors : ''}
