@@ -8,6 +8,7 @@ export default {
   dimension: '3D',
   velocity: 2,
   boundaryType: 'bounce',
+  antialias: true,
   direction: {
     xMin: -1,
     xMax: 1,

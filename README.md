@@ -49,6 +49,9 @@ const config = {
   boundaryType: 'bounce',
   // Maximum velocity of particles
   velocity: 2,
+  // Toggles antialiasing -- must be set during construction, cannot be changed after initial render
+  // Slight performance optimization to set false, although lines will appear more jagged
+  antialias: true,
   // Min/Max multipliers which constraint how particles move in each direction
   // The default values here allow for particles to move in completely random x, y, z directions
   // See the "Snowfall" preset for an example of how to use these values

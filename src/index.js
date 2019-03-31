@@ -8,7 +8,11 @@ import initialConfig from './config';
  * Wraps a particle field in a Canvas
  */
 const ParticleCanvas = ({ config }) => (
-  <Canvas>
+  <Canvas
+    props={{
+      antialias: config.antialias ? config.antialias : initialConfig.antialias
+    }}
+  >
     <ParticleField {...Object.assign({}, initialConfig, config)} />
   </Canvas>
 );
