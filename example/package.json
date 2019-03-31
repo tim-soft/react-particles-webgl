@@ -16,7 +16,7 @@
     "react-spring": "^8.0.18",
     "styled-components": "^4.2.0",
     "styled-normalize": "^8.0.6",
-    "three": "^0.102.1"
+    "three": "^0.103.0"
   },
   "scripts": {
     "start": "react-scripts start",
