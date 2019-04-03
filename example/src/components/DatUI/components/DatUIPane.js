@@ -204,7 +204,7 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
           path="lines.minDistance"
           label="Min Distance"
           min={10}
-          max={1000}
+          max={250}
           step={1}
         />
         <DatBoolean path="limitConnections" label="Limit Connections" />

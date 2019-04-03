@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Highlight from 'react-highlight';
+import stringifyObject from 'stringify-object';
 
 /**
  * A code viewer which pretty prints the current ParticleField config
@@ -14,10 +15,22 @@ const ConfigViewer = ({ datConfig }) => (
       <Highlight className="javascript">
         {`/**
  * Tim Ellenberger
- * https://github.com/tim-soft
+ * 
+ * `}
+        <StyledCommentLink
+          href="https://github.com/tim-soft/react-particles-webgl#usage"
+          target="__blank"
+        >
+          docs@tim-soft/react-particles-webgl
+        </StyledCommentLink>
+        {`
  */
 
-${JSON.stringify(datConfig, undefined, 2)}`}
+const config = ${stringifyObject(datConfig, {
+          indent: '  ',
+          singleQuotes: true
+        })}
+`}
       </Highlight>
     </HighlightStyles>
   </ConfigContainer>
@@ -32,120 +45,147 @@ export default ConfigViewer;
 const ConfigContainer = styled.div`
   position: absolute;
   background: #1a1a1ad4;
-  min-height: 1050px;
+  min-height: 950px;
   color: white;
-  width: 352px;
-  padding: 10px;
+  width: 372px;
   height: 100%;
   user-select: text;
+  > div > pre {
+    margin-top: 0;
+    > code {
+      background: unset !important;
+    }
+  }
+`;
+
+const StyledCommentLink = styled.a`
+  text-decoration: none;
+  border-style: dashed;
+  border-color: #57a64a;
+  border-width: 1px;
+  padding: 2px;
+  margin-left: 2px;
+  transition: border-color 0.2s linear;
+  > span > span {
+    transition: color 0.2s linear;
+  }
+  :hover {
+    border-color: #9cdcfe;
+    > span > span {
+      color: #9cdcfe !important;
+    }
+  }
 `;
 
 const HighlightStyles = styled.div`
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  > pre {
-    height: 100%;
-    margin: 0;
-    > code {
-      height: 100% !important;
-      padding: 0 !important;
-      height: 100% !important;
-      background: inherit !important;
-    }
-  }
   .hljs {
     display: block;
     overflow-x: auto;
     padding: 0.5em;
-    line-height: 1.3em;
-    color: #abb2bf;
-    background: #282c34;
-    border-radius: 5px;
+    background: #1e1e1e;
+    color: #dcdcdc;
   }
+
   .hljs-keyword,
-  .hljs-operator {
-    color: #f92672;
+  .hljs-literal,
+  .hljs-symbol,
+  .hljs-name {
+    color: #569cd6;
   }
-  .hljs-pattern-match {
-    color: #f92672;
+  .hljs-link {
+    color: #569cd6;
+    text-decoration: underline;
   }
-  .hljs-pattern-match .hljs-constructor {
-    color: #61aeee;
+
+  .hljs-built_in,
+  .hljs-type {
+    color: #4ec9b0;
   }
-  .hljs-function {
-    color: #61aeee;
+
+  .hljs-number,
+  .hljs-class {
+    color: #b8d7a3;
   }
-  .hljs-function .hljs-params {
-    color: #a6e22e;
+
+  .hljs-string,
+  .hljs-meta-string {
+    color: #d69d85;
   }
-  .hljs-function .hljs-params .hljs-typing {
-    color: #fd971f;
+
+  .hljs-regexp,
+  .hljs-template-tag {
+    color: #9a5334;
   }
-  .hljs-module-access .hljs-module {
-    color: #7e57c2;
+
+  .hljs-subst,
+  .hljs-function,
+  .hljs-title,
+  .hljs-params,
+  .hljs-formula {
+    color: #dcdcdc;
   }
-  .hljs-constructor {
-    color: #e2b93d;
-  }
-  .hljs-constructor .hljs-string {
-    color: #9ccc65;
-  }
+
   .hljs-comment,
   .hljs-quote {
-    color: #b18eb1;
+    color: #57a64a;
     font-style: italic;
   }
-  .hljs-doctag,
-  .hljs-formula {
-    color: #c678dd;
+
+  .hljs-doctag {
+    color: #608b4e;
   }
-  .hljs-section,
-  .hljs-name,
-  .hljs-selector-tag,
-  .hljs-deletion,
-  .hljs-subst {
-    color: #e06c75;
-  }
-  .hljs-literal {
-    color: #56b6c2;
-  }
-  .hljs-string,
-  .hljs-regexp,
-  .hljs-addition,
-  .hljs-attribute,
-  .hljs-meta-string {
-    color: #98c379;
-  }
-  .hljs-built_in,
-  .hljs-class .hljs-title {
-    color: #e6c07b;
-  }
-  .hljs-attr,
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-type,
-  .hljs-selector-class,
-  .hljs-selector-attr,
-  .hljs-selector-pseudo,
-  .hljs-number {
-    color: #d19a66;
-  }
-  .hljs-symbol,
-  .hljs-bullet,
-  .hljs-link,
+
   .hljs-meta,
-  .hljs-selector-id,
-  .hljs-title {
-    color: #61aeee;
+  .hljs-meta-keyword,
+  .hljs-tag {
+    color: #9b9b9b;
   }
+
+  .hljs-variable,
+  .hljs-template-variable {
+    color: #bd63c5;
+  }
+
+  .hljs-attr,
+  .hljs-attribute,
+  .hljs-builtin-name {
+    color: #9cdcfe;
+  }
+
+  .hljs-section {
+    color: gold;
+  }
+
   .hljs-emphasis {
     font-style: italic;
   }
+
   .hljs-strong {
     font-weight: bold;
   }
-  .hljs-link {
-    text-decoration: underline;
+
+  .hljs-code {
+    font-family: 'Monospace';
+  }
+
+  .hljs-bullet,
+  .hljs-selector-tag,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo {
+    color: #d7ba7d;
+  }
+
+  .hljs-addition {
+    background-color: #144212;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .hljs-deletion {
+    background-color: #600;
+    display: inline-block;
+    width: 100%;
   }
 `;
