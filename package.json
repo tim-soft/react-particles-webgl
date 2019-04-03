@@ -93,7 +93,7 @@
   "dependencies": {
     "hex-rgb": "^4.0.0",
     "is-hexcolor": "^1.0.0",
-    "react-three-fiber": "^1.5.3",
+    "react-three-fiber": "^2.0.0",
     "three-orbitcontrols": "^2.102.1"
   }
 }

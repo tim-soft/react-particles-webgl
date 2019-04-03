@@ -141,13 +141,13 @@ const ParticleField = ({
           <boxHelper>
             <mesh name="object">
               <meshBasicMaterial
-                name="material"
+                attach="material"
                 color="white"
                 blending={AdditiveBlending}
                 wireframe
                 transparent
               />
-              <boxBufferGeometry name="geometry" args={[r, r, r]} />
+              <boxBufferGeometry attach="geometry" args={[r, r, r]} />
             </mesh>
           </boxHelper>
         )}

@@ -3268,6 +3268,11 @@ pluralize@^7.0.0:
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
   integrity sha512-ARhBOdzS3e41FbkW/XWrTEtukqqLoK5+Z/4UeDaLuSW+39JPeFgs4gCGqsrJHVZX0fUrx//4OF0K1CUGwlIFow==
 
+pointer-events-polyfill@^0.4.4-pre:
+  version "0.4.4-pre"
+  resolved "https://registry.yarnpkg.com/pointer-events-polyfill/-/pointer-events-polyfill-0.4.4-pre.tgz#d745eb0cef8aa3f661cdba1364b9728b46d0872f"
+  integrity sha512-t7iitVY5jW9mGOFZEHphJOzB8eMhoYaE6I5HqsUX14rjsPa9F6OlMOCj3EpqDzNb/8XtMk2BxMpOyePPyuefHw==
+
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
@@ -3423,13 +3428,14 @@ react-reconciler@^0.20.1:
     prop-types "^15.6.2"
     scheduler "^0.13.5"
 
-react-three-fiber@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-1.5.3.tgz#5e9284e3f21c9c7c9530c8cef39d4e3c630c7b33"
-  integrity sha512-9GJEuTwIEPRS/zCHqKAs8IUvnFT8qMOxV4ORdMY5wHgU4Od1xxRfiVwZqKf0X2bTX6HqLSnBOJXYmGHPYgLM/Q==
+react-three-fiber@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.0.tgz#311da5f12f7cb7a6a53646c92f1394e8b69e9d78"
+  integrity sha512-EcPk9tlRPxzNaVq7ooVv42RvzTfs5OnkqKd89uoL+kBfwMc38Q57uqjDmz4go4CFcY+soMxA6u+XhhGOgQd3Aw==
   dependencies:
     "@babel/runtime" "^7.3.4"
     lodash-es "^4.17.11"
+    pointer-events-polyfill "^0.4.4-pre"
     react-reconciler "^0.20.1"
     resize-observer-polyfill "^1.5.1"
     scheduler "^0.13.3"

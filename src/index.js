@@ -9,7 +9,7 @@ import initialConfig from './config';
  */
 const ParticleCanvas = ({ config }) => (
   <Canvas
-    props={{
+    gl={{
       antialias: config.antialias ? config.antialias : initialConfig.antialias
     }}
   >
