@@ -3435,10 +3435,10 @@ react-reconciler@^0.20.1:
     prop-types "^15.6.2"
     scheduler "^0.13.5"
 
-react-three-fiber@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.0.tgz#311da5f12f7cb7a6a53646c92f1394e8b69e9d78"
-  integrity sha512-EcPk9tlRPxzNaVq7ooVv42RvzTfs5OnkqKd89uoL+kBfwMc38Q57uqjDmz4go4CFcY+soMxA6u+XhhGOgQd3Aw==
+react-three-fiber@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.8.tgz#81e45e1816ce85de54f52f963bef8c3a81508522"
+  integrity sha512-X0StBJ5pwjYfXItmljM2E94uV2nwQ/2rtRsJzybdqWRanNawiGPGc30RD8+/J9c1df2fnYBPDtGpiNfJawg2cw==
   dependencies:
     "@babel/runtime" "^7.3.4"
     lodash-es "^4.17.11"
