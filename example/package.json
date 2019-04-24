@@ -11,7 +11,7 @@
     "react-dom": "link:../node_modules/reac-dom",
     "react-highlight": "^0.12.0",
     "react-particles-webgl": "link:..",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^3.0.0",
     "react-scrollbars-custom": "3",
     "react-spring": "^8.0.19",
     "stringify-object": "^3.3.0",
@@ -28,15 +28,21 @@
   "jest": {
     "preset": "jest-puppeteer"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "jest": "23.6.0",
-    "jest-puppeteer": "3.9.0",
+    "jest": "24.7.1",
+    "jest-puppeteer": "4.1.1",
     "puppeteer": "^1.14.0"
   }
 }
