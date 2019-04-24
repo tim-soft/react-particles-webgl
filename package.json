@@ -80,11 +80,11 @@
     "prettier": "^1.17.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "rollup": "^1.8.0",
+    "rollup": "^1.10.1",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.3.0",
+    "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-filesize": "^6.0.1",
-    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-node-resolve": "^4.2.3",
     "three": "^0.103.0"
   },
   "files": [
