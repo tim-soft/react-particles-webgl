@@ -85,7 +85,7 @@
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-filesize": "^6.0.1",
     "rollup-plugin-node-resolve": "^4.2.3",
-    "three": "^0.103.0"
+    "three": "^0.105.2"
   },
   "files": [
     "dist"
