@@ -725,17 +725,10 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.4":
   version "7.4.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
   integrity sha512-TuI4qpWZP6lGOGIuGWtp9sPluqYICmbk8T/1vpSysqJxRPkudh/ofFWyqdcMsDf2s7KvDL4/YHgKyvcS3g9CJQ==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
-"@babel/runtime@^7.3.4":
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.2.tgz#f5ab6897320f16decd855eed70b705908a313fe8"
-  integrity sha512-7Bl2rALb7HpvXFL7TETNzKSAeBVCPHELzc0C//9FCxN8nsiueWSJBqaF+2oIJScyILStASR/Cx5WMkXGYTiJFA==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -833,6 +826,13 @@
   integrity sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==
   dependencies:
     "@types/node" "*"
+
+"@types/three@^0.103.2":
+  version "0.103.2"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.103.2.tgz#f7d49130001c551941a0ded757def810579aafc4"
+  integrity sha512-zhtf0Qs5wLJpIn1+VWCpzSgpKayj/GSWZ6woiuz09FW59KEDeLpnBkYz6lbblVpRmGdlnG8nd0unaASshOvcXw==
+  dependencies:
+    three "*"
 
 acorn-jsx@^5.0.0:
   version "5.0.1"
@@ -3463,27 +3463,28 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 
-react-reconciler@^0.20.1:
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.20.3.tgz#ff5f75eb73e004a2a8757b41cd645baf442ea4b9"
-  integrity sha512-kKowgno8ZRNhFSQcuQ2ja/Lrvav58qnwy4w7bVbA4x+WKlDrP1vU42AQwwi2fMltVRTprD6OVMuCumPFPrB9fQ==
+react-reconciler@^0.20.4:
+  version "0.20.4"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.20.4.tgz#3da6a95841592f849cb4edd3d38676c86fd920b2"
+  integrity sha512-kxERc4H32zV2lXMg/iMiwQHOtyqf15qojvkcZ5Ja2CPkjVohHw9k70pdDBwrnQhLVetUJBSYyqU3yqrlVTOajA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.5"
+    scheduler "^0.13.6"
 
-react-three-fiber@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.0.8.tgz#81e45e1816ce85de54f52f963bef8c3a81508522"
-  integrity sha512-X0StBJ5pwjYfXItmljM2E94uV2nwQ/2rtRsJzybdqWRanNawiGPGc30RD8+/J9c1df2fnYBPDtGpiNfJawg2cw==
+react-three-fiber@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.2.5.tgz#5b1140805d45725a19aab3074cda784bc020cadb"
+  integrity sha512-tqiFjFH+jMuzlXFWxhDBssTg6N/v0W5nZqXUxU4OyNYAtp3pOwp4+wm4IzBc23WGpVmDrxA5TpX1lrKoBrFpSw==
   dependencies:
-    "@babel/runtime" "^7.3.4"
+    "@babel/runtime" "^7.4.4"
+    "@types/three" "^0.103.2"
     lodash-es "^4.17.11"
     pointer-events-polyfill "^0.4.4-pre"
-    react-reconciler "^0.20.1"
+    react-reconciler "^0.20.4"
     resize-observer-polyfill "^1.5.1"
-    scheduler "^0.13.3"
+    scheduler "0.13.3"
 
 react@^16.8.6:
   version "16.8.6"
@@ -3767,10 +3768,10 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-scheduler@^0.13.3, scheduler@^0.13.5:
-  version "0.13.5"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.5.tgz#b7226625167041298af3b98088a9dbbf6d7733a8"
-  integrity sha512-K98vjkQX9OIt/riLhp6F+XtDPtMQhqNcf045vsh+pcuvHq+PHy1xCrH3pq1P40m6yR46lpVvVhKdEOtnimuUJw==
+scheduler@0.13.3:
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.3.tgz#bed3c5850f62ea9c716a4d781f9daeb9b2a58896"
+  integrity sha512-UxN5QRYWtpR1egNWzJcVLk8jlegxAugswQc984lD3kU7NuobsO37/sRfbpTdBjtnD5TBNFA2Q2oLV5+UmPSmEQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -4187,6 +4188,11 @@ three-orbitcontrols@^2.102.1:
   version "2.102.1"
   resolved "https://registry.yarnpkg.com/three-orbitcontrols/-/three-orbitcontrols-2.102.1.tgz#f4071e79f1c12e2b7668992cb06cfa29a816629d"
   integrity sha512-mp5qc5mooCtjgSloMFzIEI2VQVkvBDWDMYtbxY3TFB/BCCYpR6NV7/dD5+EUyzR90/a9H356s9QR+2PhH48f6w==
+
+three@*:
+  version "0.105.2"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.105.2.tgz#d135f1549bdcf5a9acd904ba3dbf9198a0268984"
+  integrity sha512-L3Al37k4g3hVbgFFS251UVtIc25chhyN0/RvXzR0C+uIBToV6EKDG+MZzEXm9L2miGUVMK27W46/VkP6WUZXMg==
 
 three@^0.103.0:
   version "0.103.0"
