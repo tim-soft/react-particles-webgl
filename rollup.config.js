@@ -9,7 +9,7 @@ import pkg from './package.json';
 const root = process.platform === 'win32' ? path.resolve('/') : '/';
 
 export default {
-  input: 'src/index.js',
+  input: './src/index.js',
   output: [
     {
       file: pkg.main,
