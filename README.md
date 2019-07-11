@@ -4,11 +4,12 @@
 
 **react-particles-webgl** was inspired by the popular [particles.js](https://github.com/VincentGarreau/particles.js/) library and built with [react-three-fiber](https://github.com/drcmda/react-three-fiber) to offer _smooth_ **60FPS** high-count particle fields in both two and three dimensions.
 
-**Demo and config generator** [https://timellenberger.now.sh/particles](https://tim-soft.now.sh/particles)
+**Demo and config generator** [https://timellenberger.com/particles](https://timellenberger.com/particles)
 
-**Code Sandbox Demos** 
- - 2D Green Particles [https://codesandbox.io/s/4x4lmpqz1w](https://codesandbox.io/s/4x4lmpqz1w)
- - 3D Snowfall [https://codesandbox.io/s/308zj3k7l1](https://codesandbox.io/s/308zj3k7l1)
+**Code Sandbox Demos**
+
+- 2D Green Particles [https://codesandbox.io/s/4x4lmpqz1w](https://codesandbox.io/s/4x4lmpqz1w)
+- 3D Snowfall [https://codesandbox.io/s/308zj3k7l1](https://codesandbox.io/s/308zj3k7l1)
 
 [![npm](https://img.shields.io/npm/v/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://www.npmjs.com/package/react-particles-webgl)
 [![NPM](https://img.shields.io/npm/l/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://github.com/tim-soft/react-particles-webgl/blob/master/LICENSE)
