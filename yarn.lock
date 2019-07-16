@@ -3727,10 +3727,10 @@ text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-three-orbitcontrols@^2.102.1:
-  version "2.102.1"
-  resolved "https://registry.yarnpkg.com/three-orbitcontrols/-/three-orbitcontrols-2.102.1.tgz#f4071e79f1c12e2b7668992cb06cfa29a816629d"
-  integrity sha512-mp5qc5mooCtjgSloMFzIEI2VQVkvBDWDMYtbxY3TFB/BCCYpR6NV7/dD5+EUyzR90/a9H356s9QR+2PhH48f6w==
+three-orbitcontrols@^2.102.2:
+  version "2.102.2"
+  resolved "https://registry.yarnpkg.com/three-orbitcontrols/-/three-orbitcontrols-2.102.2.tgz#4126cbc941227ef03acdd9f2cc0551b7c7271e64"
+  integrity sha512-VIJpnJoL6PXbGiTX+z68/uu9E+I8cACVr6m1qm9yjfel6PU1/VE78B6gar9fVaQUhrXCCK0GlvpYsyZjCsisrQ==
 
 three@*, three@^0.105.2:
   version "0.105.2"
