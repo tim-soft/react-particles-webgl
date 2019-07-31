@@ -22,7 +22,7 @@ describe('app', () => {
 
     await page.goto('http://localhost:3000');
 
-    expect(logs.includes('THREE.WebGLRenderer 105')).toBe(true);
+    expect(logs.includes('THREE.WebGLRenderer 107')).toBe(true);
   }, 10000);
 
   test('No page errors', async () => {
