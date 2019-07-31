@@ -14,8 +14,8 @@
 [![npm](https://img.shields.io/npm/v/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://www.npmjs.com/package/react-particles-webgl)
 [![NPM](https://img.shields.io/npm/l/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://github.com/tim-soft/react-particles-webgl/blob/master/LICENSE)
 
-[![2D "Particles.js" Canvas](https://i.imgur.com/kpIUdV9.jpg)](https://next-portfolio-git-master.tim-soft.now.sh/particles)
-[![3D Particle Field](https://i.imgur.com/M34XUy6.jpg)](https://next-portfolio-git-master.tim-soft.now.sh/particles)
+[![2D "Particles.js" Canvas](https://i.imgur.com/kpIUdV9.jpg)](https://timellenberger.com/particles)
+[![3D Particle Field](https://i.imgur.com/M34XUy6.jpg)](https://timellenberger.com/particles)
 
 ## ✨ Features
 
