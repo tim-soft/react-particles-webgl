@@ -3238,10 +3238,10 @@ react-reconciler@^0.20.4:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-three-fiber@^2.2.11:
-  version "2.2.11"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.2.11.tgz#e9eb844c5386a51cc6d14d9ef3811ae1448ca934"
-  integrity sha512-6iuJycGbmz0TkKgR3HoAeiJZKY/rGl4AQRxtzCp4H5ZS/6JjefM6mmE5YxF3oFfBuBvTNhnmnWXV67euBUmYQQ==
+react-three-fiber@^2.2.14:
+  version "2.2.14"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.2.14.tgz#df07a654335af90a3ee80020553cefbcc41553bc"
+  integrity sha512-ANLbGBRdUZC+L18pOtC5vJfU92mLLs4a5tDIpjdD//IyYoEACJWc0Qy069hC6hOUdLAZBq6vyRD8EPOuxJCtHA==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@types/three" "^0.103.2"
