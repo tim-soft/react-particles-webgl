@@ -10,7 +10,9 @@ import initialConfig from './config';
 const ParticleCanvas = ({ config }) => (
   <Canvas
     gl={{
-      antialias: config.antialias ? config.antialias : initialConfig.antialias
+      antialias: Object.prototype.hasOwnProperty.call(config, 'antialias')
+        ? config.antialias
+        : initialConfig.antialias
     }}
   >
     <ParticleField {...Object.assign({}, initialConfig, config)} />
