@@ -13,6 +13,8 @@
 
 [![npm](https://img.shields.io/npm/v/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://www.npmjs.com/package/react-particles-webgl)
 [![NPM](https://img.shields.io/npm/l/react-particles-webgl.svg?color=brightgreen&style=popout-square)](https://github.com/tim-soft/react-particles-webgl/blob/master/LICENSE)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=popout-square)
+[![Travis (.org)](https://img.shields.io/travis/tim-soft/react-particles-webgl?style=flat-square)](https://travis-ci.org/tim-soft/react-particles-webgl)
 
 [![2D "Particles.js" Canvas](https://i.imgur.com/kpIUdV9.jpg)](https://timellenberger.com/particles)
 [![3D Particle Field](https://i.imgur.com/M34XUy6.jpg)](https://timellenberger.com/particles)
