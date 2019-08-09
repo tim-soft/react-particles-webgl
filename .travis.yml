@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - 12
+  - 10
+  - 8
+cache:
+  directories:
+    - ~/.npm
+install: npm install && cd example && npm install
+script:
+  - npm run test
+  - npm run build
+branches:
+  only: master
+notifications:
+  email: false
