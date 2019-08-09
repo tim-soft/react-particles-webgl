@@ -3,13 +3,16 @@ node_js:
   - 12
   - 10
   - 8
-cache:
-  directories:
-    - ~/.npm
-install: npm install && cd example && npm install
+cache: yarn
+install:
+  - yarn install
+  - yarn link
+  - cd example
+  - yarn link react-particles-webgl
+  - yarn install
 script:
-  - npm run test
-  - npm run build
+  - yarn test
+  - yarn build
 branches:
   only: master
 notifications:
