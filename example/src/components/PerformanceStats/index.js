@@ -12,6 +12,7 @@ import styled from 'styled-components';
 class FPSStats extends Component {
   constructor(props) {
     super(props);
+    // eslint-disable-next-line no-undef
     const currentTime = performance.now();
     this.state = {
       frames: 0,
@@ -40,6 +41,7 @@ class FPSStats extends Component {
     const { frames, prevTime } = this.state;
 
     // Snapshot current time
+    // eslint-disable-next-line no-undef
     const currentTime = performance.now();
 
     // Add frame for perf snapshot
