@@ -27,31 +27,22 @@ const handleBoundary = ({
   // The particles feel like they 'disappear' and new ones are 'appearing'
   if (boundaryType === 'passthru') {
     // If a particle crosses the x-axis edge, send particle to the opposite x-axis edge
-    if (particlePositions[i * 3] < -xBounds / 2) {
+    if (particlePositions[i * 3] < -xBounds / 2)
       particlePositions[i * 3] = xBounds / 2;
-      particleData.velocity.x = particleData.velocity.x;
-    } else if (particlePositions[i * 3] > xBounds / 2) {
+    else if (particlePositions[i * 3] > xBounds / 2)
       particlePositions[i * 3] = -xBounds / 2;
-      particleData.velocity.x = particleData.velocity.x;
-    }
 
     // If a particle crosses the y-axis edge, send particle to the opposite y-axis edge
-    if (particlePositions[i * 3 + 1] < -yBounds / 2) {
+    if (particlePositions[i * 3 + 1] < -yBounds / 2)
       particlePositions[i * 3 + 1] = yBounds / 2;
-      particleData.velocity.y = particleData.velocity.y;
-    } else if (particlePositions[i * 3 + 1] > yBounds / 2) {
+    else if (particlePositions[i * 3 + 1] > yBounds / 2)
       particlePositions[i * 3 + 1] = -yBounds / 2;
-      particleData.velocity.y = particleData.velocity.y;
-    }
 
     // If a particle crosses the y-axis edge, send particle to the opposite y-axis edge
-    if (particlePositions[i * 3 + 2] < -zBounds / 2) {
+    if (particlePositions[i * 3 + 2] < -zBounds / 2)
       particlePositions[i * 3 + 2] = zBounds / 2;
-      particleData.velocity.z = particleData.velocity.z;
-    } else if (particlePositions[i * 3 + 2] > zBounds / 2) {
+    else if (particlePositions[i * 3 + 2] > zBounds / 2)
       particlePositions[i * 3 + 2] = -zBounds / 2;
-      particleData.velocity.z = particleData.velocity.z;
-    }
   } else if (boundaryType === 'bounce') {
     // Make the current particle "bounce" off of the "bounds" of the canvas
     // The particles behave like balls thrown at a wall
