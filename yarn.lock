@@ -2392,10 +2392,10 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash-es@^4.17.11:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
-  integrity sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
+lodash-es@^4.17.15:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
 lodash@^4.17.10, lodash@^4.17.11:
   version "4.17.11"
@@ -2884,7 +2884,7 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 
-react-reconciler@^0.20.4:
+react-reconciler@0.20.4:
   version "0.20.4"
   resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.20.4.tgz#3da6a95841592f849cb4edd3d38676c86fd920b2"
   integrity sha512-kxERc4H32zV2lXMg/iMiwQHOtyqf15qojvkcZ5Ja2CPkjVohHw9k70pdDBwrnQhLVetUJBSYyqU3yqrlVTOajA==
@@ -2894,16 +2894,16 @@ react-reconciler@^0.20.4:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-three-fiber@^2.2.14:
-  version "2.2.14"
-  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.2.14.tgz#df07a654335af90a3ee80020553cefbcc41553bc"
-  integrity sha512-ANLbGBRdUZC+L18pOtC5vJfU92mLLs4a5tDIpjdD//IyYoEACJWc0Qy069hC6hOUdLAZBq6vyRD8EPOuxJCtHA==
+react-three-fiber@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-2.3.6.tgz#33b2ffe10be661fa969db17477a8f229183228cd"
+  integrity sha512-9wx5hvf54Gazg2fDQZi4TQ1Nk771O6j4VHgNCv/wAp6RW6c9iGV3BY1FievUQUOq07nj+J1zUX9U6bTRmtd22Q==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@types/three" "^0.103.2"
-    lodash-es "^4.17.11"
+    lodash-es "^4.17.15"
     pointer-events-polyfill "^0.4.4-pre"
-    react-reconciler "^0.20.4"
+    react-reconciler "0.20.4"
     resize-observer-polyfill "^1.5.1"
     scheduler "0.13.3"
 
