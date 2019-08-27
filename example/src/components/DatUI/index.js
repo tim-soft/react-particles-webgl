@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Scrollbar from 'react-scrollbars-custom';
 import { Transition, animated } from 'react-spring/renderprops.cjs';
+import Scrollbar from './components/Scrollbars';
 import ConfigViewer from './components/ConfigViewer';
 import DatUIPane from './components/DatUIPane';
 
@@ -61,21 +61,7 @@ class DatUI extends React.Component {
                   opacity
                 }}
               >
-                <StyledScrollbar
-                  trackYRenderer={({ elementRef, style, ...restProps }) => (
-                    <span
-                      {...restProps}
-                      style={{
-                        ...style,
-                        background: '#9E9E9E',
-                        width: '9px',
-                        height: '100%',
-                        top: 0
-                      }}
-                      ref={elementRef}
-                    />
-                  )}
-                >
+                <StyledScrollbar>
                   <ScrollbarContentContainer>
                     <Transition
                       native
@@ -176,9 +162,9 @@ const StyledScrollWrapper = styled.div`
 
 const StyledScrollbar = styled(Scrollbar)`
   width: 100%;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 180px) !important;
 
   @media (max-width: 512px) {
-    height: calc(100vh - 260px);
+    height: calc(100vh - 260px) !important;
   }
 `;
