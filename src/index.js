@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Canvas } from 'react-three-fiber';
+import merge from 'lodash.merge';
 import ParticleField from './ParticleField';
 import initialConfig from './config';
 
@@ -15,7 +16,7 @@ const ParticleCanvas = ({ config }) => (
         : initialConfig.antialias
     }}
   >
-    <ParticleField {...Object.assign({}, initialConfig, config)} />
+    <ParticleField {...merge({}, initialConfig, config)} />
   </Canvas>
 );
 
