@@ -11,11 +11,11 @@
     "react-dom": "link:../node_modules/react-dom",
     "react-highlight": "^0.12.0",
     "react-particles-webgl": "link:..",
-    "react-scripts": "^3.0.1",
-    "react-scrollbars-custom": "4.0.18",
+    "react-scripts": "^3.1.2",
+    "react-scrollbars-custom": "4.0.20",
     "react-spring": "^8.0.23",
     "stringify-object": "^3.3.0",
-    "styled-components": "^4.3.1",
+    "styled-components": "^4.4.0",
     "styled-normalize": "^8.0.6",
     "three": "link:../node_modules/three"
   },
@@ -41,8 +41,8 @@
     ]
   },
   "devDependencies": {
-    "jest": "24.8.0",
+    "jest": "24.9.0",
     "jest-puppeteer": "4.3.0",
-    "puppeteer": "^1.18.1"
+    "puppeteer": "^1.20.0"
   }
 }
