@@ -91,7 +91,7 @@
     "hex-rgb": "^4.1.0",
     "is-hexcolor": "^1.0.0",
     "lodash.merge": "^4.6.2",
-    "react-three-fiber": "^2.3.6",
+    "react-three-fiber": "^3.0.0",
     "three-orbitcontrols": "^2.102.2"
   }
 }
