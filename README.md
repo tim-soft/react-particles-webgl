@@ -4,7 +4,9 @@
 
 **react-particles-webgl** was inspired by the popular [particles.js](https://github.com/VincentGarreau/particles.js/) library and built with [react-three-fiber](https://github.com/drcmda/react-three-fiber) to offer _smooth_ **60FPS** high-count particle fields in both two and three dimensions.
 
-**Demo and config generator** [https://timellenberger.com/particles](https://timellenberger.com/particles)
+**Documentation** [https://timellenberger.com/libraries/react-particles-webgl](https://timellenberger.com/libraries/react-particles-webgl)
+
+**Config Generator** [https://timellenberger.com/particles](https://timellenberger.com/particles)
 
 **Code Sandbox Demos**
 
