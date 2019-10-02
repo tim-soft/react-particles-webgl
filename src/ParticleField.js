@@ -2,7 +2,7 @@
 import React, { useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { AdditiveBlending } from 'three';
-import { useFrame, useThree } from 'react-three-fiber';
+import { useRender, useThree } from 'react-three-fiber';
 import OrbitControls from 'three-orbitcontrols';
 import animate from './lib/animate';
 import computeLines from './lib/computeLines';
@@ -28,11 +28,12 @@ const ParticleField = ({
   const animation = useRef(0);
   const group = useRef();
 
-  const { canvas, camera, size } = useThree();
+  const { gl, canvas, camera, size } = useThree();
   // Scale rendering automatically to window DPI
   // Pass this value to fragment shaders: gl_PointSize needs to scale against this value
   // https://threejs.org/docs/#api/en/renderers/WebGLRenderer.setPixelRatio
   const devicePixelRatio = window.devicePixelRatio.toFixed(1);
+  gl.setPixelRatio(devicePixelRatio);
 
   // Default distance from camera to particle field
   const distToParticles = 1750;
@@ -125,8 +126,7 @@ const ParticleField = ({
   // Direct access to render loop, executes on each frame
   // State changes must be passed into hook via refs
   // useRender() contents are called in a requestAnimationFrame()
-  useFrame(({ gl }) => {
-    gl.setPixelRatio(devicePixelRatio);
+  useRender(() => {
     // Enables damping of OrbitControls
     controlsRef.current.update();
     // Animate current state of particles + lines
