@@ -4,6 +4,7 @@
  * https://prettier.io/docs/en/configuration.html#basic-configuration
  */
 module.exports = {
-  singleQuote: true,
-  semi: true
+    singleQuote: true,
+    semi: true,
+    tabWidth: 4
 };
