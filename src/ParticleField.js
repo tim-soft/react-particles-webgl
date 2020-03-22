@@ -3,7 +3,7 @@ import React, { useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { AdditiveBlending } from 'three';
 import { useRender, useThree } from 'react-three-fiber';
-import OrbitControls from 'three-orbitcontrols';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import animate from './lib/animate';
 import computeLines from './lib/computeLines';
 import computeParticles from './lib/computeParticles';
