@@ -1,101 +1,101 @@
 {
-  "name": "react-particles-webgl",
-  "version": "1.0.10",
-  "description": "A 2D/3D particle library built on React, Three.js and WebGL",
-  "author": "Tim Ellenberger <timellenberger@gmail.com>",
-  "license": "MIT",
-  "repository": "tim-soft/react-particles-webgl",
-  "bugs": {
-    "url": "https://github.com/tim-soft/react-particles-webgl/issues"
-  },
-  "homepage": "https://timellenberger.com/particles",
-  "keywords": [
-    "react",
-    "fiber",
-    "three",
-    "particle",
-    "3D",
-    "canvas"
-  ],
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
-  "scripts": {
-    "test": "cd example && yarn test",
-    "build": "rollup -c",
-    "start": "rollup -c -w",
-    "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "fix": "yarn fix:eslint && yarn fix:prettier",
-    "fix:eslint": "eslint --fix \"**/*.*\"",
-    "fix:prettier": "prettier --write \"**/*.*\"",
-    "lint": "yarn lint:eslint && yarn lint:prettier",
-    "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
-    "lint:prettier": "prettier --check \"**/*.*\""
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{json,md}": [
-      "prettier --write",
-      "git add --force"
+    "name": "react-particles-webgl",
+    "version": "1.0.10",
+    "description": "A 2D/3D particle library built on React, Three.js and WebGL",
+    "author": "Tim Ellenberger <timellenberger@gmail.com>",
+    "license": "MIT",
+    "repository": "tim-soft/react-particles-webgl",
+    "bugs": {
+        "url": "https://github.com/tim-soft/react-particles-webgl/issues"
+    },
+    "homepage": "https://timellenberger.com/particles",
+    "keywords": [
+        "react",
+        "fiber",
+        "three",
+        "particle",
+        "3D",
+        "canvas"
     ],
-    "*.{js, jsx}": [
-      "prettier --write",
-      "eslint --no-ignore --fix",
-      "git add --force"
-    ]
-  },
-  "peerDependencies": {
-    "prop-types": ">=15.5.4",
-    "react": ">=16.8",
-    "react-dom": ">=16.8",
-    "three": ">=0.100"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.1",
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "babel-eslint": "10.1.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
-    "prettier": "1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "rollup": "^2.1.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-filesize": "^6.2.1",
-    "three": "^0.114.0"
-  },
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "hex-rgb": "^4.1.0",
-    "is-hexcolor": "^1.0.0",
-    "lodash.merge": "^4.6.2",
-    "react-three-fiber": "^2.3.6"
-  }
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.es.js",
+    "jsnext:main": "dist/index.es.js",
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    },
+    "scripts": {
+        "test": "cd example && yarn test",
+        "build": "rollup -c",
+        "start": "rollup -c -w",
+        "prepare": "yarn run build",
+        "predeploy": "cd example && yarn install && yarn run build",
+        "fix": "yarn fix:eslint && yarn fix:prettier",
+        "fix:eslint": "eslint --fix \"**/*.*\"",
+        "fix:prettier": "prettier --write \"**/*.*\"",
+        "lint": "yarn lint:eslint && yarn lint:prettier",
+        "lint:eslint": "eslint  \"!**/.*\" .",
+        "lint:prettier": "prettier --check \"**/*.*\""
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{json,md}": [
+            "prettier --write",
+            "git add --force"
+        ],
+        "*.{js, jsx}": [
+            "prettier --write",
+            "eslint --no-ignore --fix",
+            "git add --force"
+        ]
+    },
+    "peerDependencies": {
+        "prop-types": ">=15.5.4",
+        "react": ">=16.8",
+        "react-dom": ">=16.8",
+        "three": ">=0.100"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+        "@babel/plugin-transform-runtime": "^7.9.0",
+        "@babel/preset-env": "^7.9.0",
+        "@babel/preset-react": "^7.9.1",
+        "@rollup/plugin-commonjs": "^11.0.2",
+        "@rollup/plugin-node-resolve": "^7.1.1",
+        "babel-eslint": "10.1.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+        "cross-env": "^7.0.2",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "^18.1.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-react-hooks": "^1.7.0",
+        "husky": "^4.2.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "rollup": "^2.1.0",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-filesize": "^6.2.1",
+        "three": "^0.114.0"
+    },
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "hex-rgb": "^4.1.0",
+        "is-hexcolor": "^1.0.0",
+        "lodash.merge": "^4.6.2",
+        "react-three-fiber": "^2.3.6"
+    }
 }

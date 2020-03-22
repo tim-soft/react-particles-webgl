@@ -1,48 +1,49 @@
 {
-  "name": "react-particles-webgl-example",
-  "homepage": "https://tim-soft.github.io/react-particles-webgl",
-  "version": "0.0.0",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "@tim-soft/react-dat-gui": "^4.0.11",
-    "prop-types": "^15.6.2",
-    "react": "link:../node_modules/react",
-    "react-dom": "link:../node_modules/react-dom",
-    "react-highlight": "^0.12.0",
-    "react-particles-webgl": "link:..",
-    "react-scripts": "^3.1.2",
-    "react-scrollbars-custom": "4.0.20",
-    "react-spring": "^8.0.23",
-    "stringify-object": "^3.3.0",
-    "styled-components": "^4.4.0",
-    "styled-normalize": "^8.0.6",
-    "three": "link:../node_modules/three"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
-  },
-  "jest": {
-    "preset": "jest-puppeteer"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "jest": "24.9.0",
-    "jest-puppeteer": "4.3.0",
-    "puppeteer": "^1.20.0"
-  }
+    "name": "react-particles-webgl-example",
+    "homepage": "https://tim-soft.github.io/react-particles-webgl",
+    "version": "0.0.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "@tim-soft/react-dat-gui": "^4.0.11",
+        "prop-types": "^15.6.2",
+        "react": "link:../node_modules/react",
+        "react-dom": "link:../node_modules/react-dom",
+        "react-highlight": "^0.12.0",
+        "react-is": "^16.13.1",
+        "react-particles-webgl": "link:..",
+        "react-scripts": "^3.4.1",
+        "react-scrollbars-custom": "4.0.21",
+        "react-spring": "^8.0.23",
+        "stringify-object": "^3.3.0",
+        "styled-components": "^5.0.1",
+        "styled-normalize": "^8.0.7",
+        "three": "link:../node_modules/three"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "jest",
+        "eject": "react-scripts eject"
+    },
+    "jest": {
+        "preset": "jest-puppeteer"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "jest": "24.9.0",
+        "jest-puppeteer": "4.4.0",
+        "puppeteer": "^2.1.1"
+    }
 }

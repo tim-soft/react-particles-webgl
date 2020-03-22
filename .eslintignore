@@ -14,9 +14,14 @@ example/node_modules/**
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock*
+package.json*
+CHANGELOG.md*
+README.md*
 
 example/.DS_Store
 example/.env
 example/npm-debug.log*
 example/yarn-debug.log*
 example/yarn-error.log*
+example/public

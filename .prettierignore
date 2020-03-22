@@ -1,7 +1,22 @@
-node_modules/**
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
 example/node_modules/**
+
+# production
+/build
+/dist
+
 yarn.lock
 .editorconfig
 .eslintignore
 .gitignore
 .prettierignore
+
+example/.DS_Store
+example/.env
+example/npm-debug.log*
+example/yarn-debug.log*
+example/yarn-error.log*
+example/public

@@ -15,32 +15,35 @@ import initialConfig from './config';
  * @see https://timellenberger.com/particles
  */
 const ParticleCanvas = ({ config }) => {
-  const [clientSide, setClientSide] = useState(false);
-  useEffect(() => {
-    setClientSide(true);
-  }, []);
+    const [clientSide, setClientSide] = useState(false);
+    useEffect(() => {
+        setClientSide(true);
+    }, []);
 
-  if (!clientSide) return null;
+    if (!clientSide) return null;
 
-  return (
-    <Canvas
-      gl={{
-        antialias: Object.prototype.hasOwnProperty.call(config, 'antialias')
-          ? config.antialias
-          : initialConfig.antialias
-      }}
-    >
-      <ParticleField {...merge({}, initialConfig, config)} />
-    </Canvas>
-  );
+    return (
+        <Canvas
+            gl={{
+                antialias: Object.prototype.hasOwnProperty.call(
+                    config,
+                    'antialias'
+                )
+                    ? config.antialias
+                    : initialConfig.antialias
+            }}
+        >
+            <ParticleField {...merge({}, initialConfig, config)} />
+        </Canvas>
+    );
 };
 
 ParticleCanvas.propTypes = {
-  config: PropTypes.object
+    config: PropTypes.object
 };
 
 ParticleCanvas.defaultProps = {
-  config: {}
+    config: {}
 };
 
 export default ParticleCanvas;

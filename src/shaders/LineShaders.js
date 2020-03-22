@@ -7,12 +7,12 @@ import isHex from 'is-hexcolor';
  * @param {string} color A hex color
  */
 const genColorFromHex = ({ color }) => {
-  if (!isHex(color)) return `1, 1, 1`;
+    if (!isHex(color)) return `1, 1, 1`;
 
-  const { red, green, blue } = hexRgb(color);
-  return `${(red / 255).toFixed(2)}, ${(green / 255).toFixed(2)}, ${(
-    blue / 255
-  ).toFixed(2)}`;
+    const { red, green, blue } = hexRgb(color);
+    return `${(red / 255).toFixed(2)}, ${(green / 255).toFixed(2)}, ${(
+        blue / 255
+    ).toFixed(2)}`;
 };
 
 /**

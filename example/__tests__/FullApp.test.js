@@ -2,40 +2,40 @@
 /* eslint-disable no-undef */
 
 describe('app', () => {
-  beforeEach(async () => {
-    await page.goto('http://localhost:3000');
-  }, 30000);
+    beforeEach(async () => {
+        await page.goto('http://localhost:3000');
+    }, 30000);
 
-  test('HTML5 Canvas should exist', async () => {
-    const particleCanvas = await page.$('canvas');
-    expect(particleCanvas).toBeDefined();
-  }, 10000);
+    test('HTML5 Canvas should exist', async () => {
+        const particleCanvas = await page.$('canvas');
+        expect(particleCanvas).toBeDefined();
+    }, 10000);
 
-  test('Three WebGLRenderer Initialized', async () => {
-    const logs = [];
+    test('Three WebGLRenderer Initialized', async () => {
+        const logs = [];
 
-    page.on('console', log => {
-      const { _type, _text } = log;
+        page.on('console', log => {
+            const { _type, _text } = log;
 
-      if (_type === 'log') logs.push(_text);
-    });
+            if (_type === 'log') logs.push(_text);
+        });
 
-    await page.goto('http://localhost:3000');
+        await page.goto('http://localhost:3000');
 
-    expect(logs.includes('THREE.WebGLRenderer 107')).toBe(true);
-  }, 10000);
+        expect(logs.includes('THREE.WebGLRenderer 107')).toBe(true);
+    }, 10000);
 
-  test('No page errors', async () => {
-    const errors = [];
+    test('No page errors', async () => {
+        const errors = [];
 
-    page.on('console', log => {
-      const { _type, _text } = log;
+        page.on('console', log => {
+            const { _type, _text } = log;
 
-      if (_type === 'error') errors.push(_text);
-    });
+            if (_type === 'error') errors.push(_text);
+        });
 
-    await page.goto('http://localhost:3000');
+        await page.goto('http://localhost:3000');
 
-    expect(errors.length === 0).toBe(true);
-  }, 10000);
+        expect(errors.length === 0).toBe(true);
+    }, 10000);
 });

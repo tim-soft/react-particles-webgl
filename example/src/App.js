@@ -10,32 +10,35 @@ import { DatUI, PerformanceStats } from './components';
  * Includes a config panel and performance monitor
  */
 export default class ParticlesDemo extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      datConfig: defaultConfig
-    };
-  }
+    constructor() {
+        super();
+        this.state = {
+            datConfig: defaultConfig
+        };
+    }
 
-  handleDatUpdate = datConfig => this.setState({ datConfig });
+    handleDatUpdate = datConfig => this.setState({ datConfig });
 
-  render() {
-    const { datConfig } = this.state;
+    render() {
+        const { datConfig } = this.state;
 
-    return (
-      <Container>
-        {/* Adds some basic body styles */}
-        <DefaultStyles />
+        return (
+            <Container>
+                {/* Adds some basic body styles */}
+                <DefaultStyles />
 
-        {/* FPS Counter */}
-        <PerformanceStats />
-        {/* Config GUI */}
-        <DatUI datConfig={datConfig} handleDatUpdate={this.handleDatUpdate} />
-        {/* Particle Canvas */}
-        <ParticleField config={datConfig} />
-      </Container>
-    );
-  }
+                {/* FPS Counter */}
+                <PerformanceStats />
+                {/* Config GUI */}
+                <DatUI
+                    datConfig={datConfig}
+                    handleDatUpdate={this.handleDatUpdate}
+                />
+                {/* Particle Canvas */}
+                <ParticleField config={datConfig} />
+            </Container>
+        );
+    }
 }
 
 /**
@@ -58,13 +61,13 @@ const DefaultStyles = createGlobalStyle`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  height: 100vh;
-  user-select: none;
-  overflow: hidden;
-  background: #272727;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+    user-select: none;
+    overflow: hidden;
+    background: #272727;
 `;
