@@ -85,13 +85,13 @@ export default ({
   }
 
   pointCloudGeometry.setDrawRange(0, count);
-  pointCloudGeometry.addAttribute(
+  pointCloudGeometry.setAttribute(
     'position',
-    new BufferAttribute(particlePositions, 3).setDynamic(true)
+    new BufferAttribute(particlePositions, 3).setUsage(true)
   );
-  pointCloudGeometry.addAttribute(
+  pointCloudGeometry.setAttribute(
     'size',
-    new BufferAttribute(particleSizes, 1).setDynamic(true)
+    new BufferAttribute(particleSizes, 1).setUsage(true)
   );
 
   // Material for particle, use shaders to morph shape and color
