@@ -2,6 +2,7 @@ import {
   AdditiveBlending,
   BufferAttribute,
   BufferGeometry,
+  DynamicDrawUsage,
   ShaderMaterial
 } from 'three';
 import {
@@ -28,13 +29,13 @@ export default ({ particles, lines }) => {
   const positions = new Float32Array(segments * 3);
   const colors = new Float32Array(segments * 3);
 
-  lineMeshGeometry.addAttribute(
+  lineMeshGeometry.setAttribute(
     'position',
-    new BufferAttribute(positions, 3).setDynamic(true)
+    new BufferAttribute(positions, 3).setUsage(DynamicDrawUsage)
   );
-  lineMeshGeometry.addAttribute(
+  lineMeshGeometry.setAttribute(
     'color',
-    new BufferAttribute(colors, 3).setDynamic(true)
+    new BufferAttribute(colors, 3).setUsage(DynamicDrawUsage)
   );
   lineMeshGeometry.computeBoundingSphere();
   lineMeshGeometry.setDrawRange(0, 0);
