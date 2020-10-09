@@ -2,7 +2,7 @@
 import React, { useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { AdditiveBlending } from 'three';
-import { useRender, useThree } from 'react-three-fiber';
+import { useFrame, useThree } from 'react-three-fiber';
 import OrbitControls from 'three-orbitcontrols';
 import animate from './lib/animate';
 import computeLines from './lib/computeLines';
@@ -125,8 +125,8 @@ const ParticleField = ({
 
   // Direct access to render loop, executes on each frame
   // State changes must be passed into hook via refs
-  // useRender() contents are called in a requestAnimationFrame()
-  useRender(() => {
+  // useFrame() contents are called in a requestAnimationFrame()
+  useFrame(() => {
     // Enables damping of OrbitControls
     controlsRef.current.update();
     // Animate current state of particles + lines
