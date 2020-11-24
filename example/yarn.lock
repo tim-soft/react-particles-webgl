@@ -4778,9 +4778,9 @@ hex-rgb@^4.1.0:
   integrity sha512-n7xsIfyBkFChITGPh6FLtxNzAt2HxZLcQIY9hYH4gm2gmMQJHMguMH3E+jnmvUbSTF5QrmFnGab5Ippi+D7e/g==
 
 highlight.js@^9.11.0:
-  version "9.15.10"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.15.10.tgz#7b18ed75c90348c045eef9ed08ca1319a2219ad2"
-  integrity sha512-RoV7OkQm0T3os3Dd2VHLNMoaoDVx77Wygln3n9l5YV172XonWG6rgQD3XnF/BuFFZw9A0TJgmMSO8FEWQgvcXw==
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -8457,7 +8457,6 @@ react-dev-utils@^9.0.4:
 
 "react-dom@link:../node_modules/react-dom":
   version "0.0.0"
-  uid ""
 
 react-draggable@^3.3.2:
   version "3.3.2"
@@ -8485,8 +8484,13 @@ react-is@^16.6.0, react-is@^16.8.1, react-is@^16.8.4:
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
 "react-particles-webgl@link:..":
-  version "0.0.0"
-  uid ""
+  version "1.0.10"
+  dependencies:
+    hex-rgb "^4.1.0"
+    is-hexcolor "^1.0.0"
+    lodash.merge "^4.6.2"
+    react-three-fiber "^2.3.6"
+    three-orbitcontrols "^2.102.2"
 
 react-reconciler@0.20.4:
   version "0.20.4"
@@ -8591,7 +8595,6 @@ react-three-fiber@^2.3.6:
 
 "react@link:../node_modules/react":
   version "0.0.0"
-  uid ""
 
 reactcss@^1.2.0:
   version "1.2.3"
@@ -9084,14 +9087,6 @@ scheduler@^0.13.6:
   version "0.13.6"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
   integrity sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
-scheduler@^0.16.1:
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.16.1.tgz#a6fb6ddec12dc2119176e6eb54ecfe69a9eba8df"
-  integrity sha512-MIuie7SgsqMYOdCXVFZa8SKoNorJZUWHW8dPgto7uEHn1lX3fg2Gu0TzgK8USj76uxV7vB5eRMnZs/cdEHg+cg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -9866,7 +9861,6 @@ three@*:
 
 "three@link:../node_modules/three":
   version "0.0.0"
-  uid ""
 
 throat@^4.0.0:
   version "4.1.0"
