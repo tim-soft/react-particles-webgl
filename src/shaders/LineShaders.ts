@@ -1,18 +1,27 @@
 import hexRgb from 'hex-rgb';
 import isHex from 'is-hexcolor';
+import type { ColorMode } from '../types/config';
+
+type GenColorFromHexParams = {
+    color: string;
+};
 
 /**
  * Converts a hex color to gl_FragColor format
  *
  * @param {string} color A hex color
  */
-const genColorFromHex = ({ color }) => {
-  if (!isHex(color)) return `1, 1, 1`;
+const genColorFromHex = ({ color }: GenColorFromHexParams) => {
+    if (!isHex(color)) return `1, 1, 1`;
 
-  const { red, green, blue } = hexRgb(color);
-  return `${(red / 255).toFixed(2)}, ${(green / 255).toFixed(2)}, ${(
-    blue / 255
-  ).toFixed(2)}`;
+    const { blue, green, red } = hexRgb(color);
+    return `${(red / 255).toFixed(2)}, ${(green / 255).toFixed(2)}, ${(
+        blue / 255
+    ).toFixed(2)}`;
+};
+
+type SolidLineColorsParams = {
+    color: string;
 };
 
 /**
@@ -20,7 +29,7 @@ const genColorFromHex = ({ color }) => {
  *
  * @param {string} color A hex color
  */
-const solidLineColors = ({ color }) => `
+const solidLineColors = ({ color }: SolidLineColorsParams) => `
   vColor = vec3(${genColorFromHex({ color })});
 `;
 
@@ -32,13 +41,21 @@ const rainbowLineColors = `
   vColor = normalize( abs( worldPosition.xyz ) );
 `;
 
+type GetSolidLineVertexShaderParams = {
+    color: string;
+    colorMode: ColorMode;
+};
+
 /**
  * Generates a vertex shader for a connecting line in a particle system
  *
  * This shader uses the position of particles to determine their color
  * and change them as they move
  */
-export const getLineVertexShader = ({ colorMode, color }) => `
+export const getLineVertexShader = ({
+    color,
+    colorMode,
+}: GetSolidLineVertexShaderParams) => `
 // Amount of transparency for line, calculated in Animate
 attribute float color;
 
@@ -56,10 +73,16 @@ void main() {
 }
 `;
 
+type GetLineFragmentShaderParams = {
+    transparency: number;
+};
+
 /**
  * Applies a color to a connecting line in a particle system
  */
-export const getLineFragmentShader = ({ transparency }) => `
+export const getLineFragmentShader = ({
+    transparency,
+}: GetLineFragmentShaderParams) => `
 // Color calculated from vertex shader, based on line position
 varying vec3 vColor;
 // Amount of transparency from vertex shader, based on distance between particles

@@ -1,0 +1,6 @@
+/* eslint-disable sort-keys */
+{
+    "extends": "./tsconfig.json",
+    "include": ["src/index.tsx"],
+    "exclude": ["node_modules", "dist", "example", "src/__tests__"]
+}

@@ -1,97 +1,113 @@
 {
-  "name": "react-particles-webgl",
-  "version": "1.0.10",
-  "description": "A 2D/3D particle library built on React, Three.js and WebGL",
-  "author": "Tim Ellenberger <timellenberger@gmail.com>",
-  "license": "MIT",
-  "repository": "tim-soft/react-particles-webgl",
-  "bugs": {
-    "url": "https://github.com/tim-soft/react-particles-webgl/issues"
-  },
-  "homepage": "https://timellenberger.com/particles",
-  "keywords": [
-    "react",
-    "fiber",
-    "three",
-    "particle",
-    "3D",
-    "canvas"
-  ],
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
-  "scripts": {
-    "test": "cd example && yarn test",
-    "build": "rollup -c",
-    "start": "rollup -c -w",
-    "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "lint": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{json,md}": [
-      "prettier --write",
-      "git add --force"
+    "name": "react-particles-webgl",
+    "version": "1.0.10",
+    "description": "A 2D/3D particle library built on React, Three.js and WebGL",
+    "author": "Tim Ellenberger <timellenberger@gmail.com>",
+    "license": "MIT",
+    "repository": "tim-soft/react-particles-webgl",
+    "bugs": {
+        "url": "https://github.com/tim-soft/react-particles-webgl/issues"
+    },
+    "homepage": "https://timellenberger.com/particles",
+    "keywords": [
+        "react",
+        "fiber",
+        "three",
+        "particle",
+        "3D",
+        "canvas"
     ],
-    "*.{js, jsx}": [
-      "prettier --write",
-      "eslint --no-ignore --fix",
-      "git add --force"
-    ]
-  },
-  "peerDependencies": {
-    "prop-types": ">=15.5.4",
-    "react": ">=16.8",
-    "react-dom": ">=16.8",
-    "three": ">=0.100"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "10.0.3",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "cross-env": "^6.0.3",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.15.1",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^3.0.8",
-    "lint-staged": "^9.4.1",
-    "prettier": "^1.18.2",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
-    "rollup": "^1.22.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-filesize": "^6.2.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "three": "^0.107.0"
-  },
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "hex-rgb": "^4.1.0",
-    "is-hexcolor": "^1.0.0",
-    "lodash.merge": "^4.6.2",
-    "react-three-fiber": "^2.3.6",
-    "three-orbitcontrols": "^2.102.2"
-  }
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.es.js",
+    "jsnext:main": "dist/index.es.js",
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    },
+    "scripts": {
+        "fix": "yarn fix:eslint && yarn fix:prettier",
+        "fix:eslint": "eslint --fix \"**/*.*\"",
+        "fix:prettier": "prettier --write \"**/*.*\"",
+        "lint": "yarn lint:eslint && yarn lint:prettier && yarn lint:ts",
+        "lint:eslint": "eslint \"**/*.*\"",
+        "lint:prettier": "prettier --check \"**/*.*\"",
+        "lint:ts": "npx tsc --noEmit -p .",
+        "test": "cd example && yarn test",
+        "build": "rollup -c && yarn run build:types",
+        "build:types": "tsc --project tsconfig.buildtypes.json --emitDeclarationOnly",
+        "start": "rollup -c -w",
+        "prepare": "yarn run build"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{json,md}": [
+            "prettier --write",
+            "git add --force"
+        ],
+        "*.{js, jsx}": [
+            "prettier --write",
+            "eslint --no-ignore --fix",
+            "git add --force"
+        ]
+    },
+    "peerDependencies": {
+        "prop-types": ">=15.5.4",
+        "react": ">=16.8",
+        "react-dom": ">=16.8",
+        "three": ">=0.100"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.3",
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.14.4",
+        "@babel/plugin-transform-runtime": "^7.14.3",
+        "@babel/preset-env": "^7.14.4",
+        "@babel/preset-react": "^7.13.13",
+        "@babel/preset-typescript": "^7.13.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^19.0.0",
+        "@rollup/plugin-node-resolve": "^13.0.0",
+        "@types/jest": "^26.0.23",
+        "@types/react": "^17.0.9",
+        "@types/react-dom": "^17.0.6",
+        "@types/three": "^0.129.1",
+        "@typescript-eslint/eslint-plugin": "^4.26.0",
+        "@typescript-eslint/parser": "^4.26.0",
+        "babel-eslint": "10.1.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+        "cross-env": "^7.0.3",
+        "eslint": "^7.28.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-import-resolver-typescript": "^2.4.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-sort-destructure-keys": "^1.3.5",
+        "husky": "^3.0.8",
+        "lint-staged": "^9.4.1",
+        "prettier": "^2.3.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "rollup": "^2.50.6",
+        "rollup-plugin-filesize": "^9.1.1",
+        "rollup-plugin-terser": "^7.0.2",
+        "three": "^0.129.0",
+        "tslib": "^2.2.0",
+        "typescript": "^4.3.2"
+    },
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "hex-rgb": "^5.0.0",
+        "is-hexcolor": "^1.0.0",
+        "lodash.merge": "^4.6.2",
+        "react-three-fiber": "^2.3.6",
+        "three-orbitcontrols": "^2.102.2"
+    }
 }
