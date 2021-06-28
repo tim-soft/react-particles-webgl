@@ -15,7 +15,7 @@ describe('app', () => {
         const logs = [];
 
         page.on('console', (log) => {
-            const { _type, _text } = log;
+            const { _text, _type } = log;
 
             if (_type === 'log') logs.push(_text);
         });
@@ -29,7 +29,7 @@ describe('app', () => {
         const errors = [];
 
         page.on('console', (log) => {
-            const { _type, _text } = log;
+            const { _text, _type } = log;
 
             if (_type === 'error') errors.push(_text);
         });

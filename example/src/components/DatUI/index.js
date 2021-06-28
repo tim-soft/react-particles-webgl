@@ -38,8 +38,8 @@ class DatUI extends React.Component {
                     <ControlButton
                         onClick={() =>
                             this.setState({
-                                showConfig: !showConfig,
                                 isOpen: true,
+                                showConfig: !showConfig,
                             })
                         }
                     >
@@ -52,11 +52,11 @@ class DatUI extends React.Component {
                     </ControlButton>
                 </ControlContainer>
                 <Transition
-                    native
-                    items={isOpen}
-                    from={{ opacity: 0 }}
                     enter={{ opacity: 1 }}
+                    from={{ opacity: 0 }}
+                    items={isOpen}
                     leave={{ opacity: 0 }}
+                    native
                 >
                     {(isOpen) =>
                         isOpen &&
@@ -69,18 +69,18 @@ class DatUI extends React.Component {
                                 <StyledScrollbar>
                                     <ScrollbarContentContainer>
                                         <Transition
-                                            native
-                                            items={showConfig}
-                                            initial={{
-                                                position: 'absolute',
-                                                opacity: 1,
-                                            }}
-                                            from={{
-                                                position: 'absolute',
-                                                opacity: 0,
-                                            }}
                                             enter={{ opacity: 1 }}
+                                            from={{
+                                                opacity: 0,
+                                                position: 'absolute',
+                                            }}
+                                            initial={{
+                                                opacity: 1,
+                                                position: 'absolute',
+                                            }}
+                                            items={showConfig}
                                             leave={{ opacity: 0 }}
+                                            native
                                         >
                                             {(showConfig) =>
                                                 showConfig
@@ -90,8 +90,8 @@ class DatUI extends React.Component {
                                                       }) => (
                                                           <animated.div
                                                               style={{
-                                                                  position,
                                                                   opacity,
+                                                                  position,
                                                                   width: '100%',
                                                               }}
                                                           >
@@ -108,8 +108,8 @@ class DatUI extends React.Component {
                                                       }) => (
                                                           <animated.div
                                                               style={{
-                                                                  position,
                                                                   opacity,
+                                                                  position,
                                                                   width: '100%',
                                                               }}
                                                           >

@@ -22,10 +22,16 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
         <DatGui data={datConfig} onUpdate={handleDatUpdate}>
             <DatPresets
                 label="Presets"
+                onUpdate={handleDatUpdate}
                 options={[
                     {
                         'Oort Cloud Stress Test': {
                             ...defaultConfig,
+                            cameraControls: {
+                                ...defaultConfig.cameraControls,
+                                autoRotate: true,
+                                resetCameraFlag: false,
+                            },
                             lines: {
                                 ...datConfig.lines,
                                 minDistance: 300,
@@ -37,16 +43,15 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
                                 maxSize: 125,
                                 shape: 'circle',
                             },
-                            cameraControls: {
-                                ...defaultConfig.cameraControls,
-                                autoRotate: true,
-                                resetCameraFlag: false,
-                            },
                         },
                         ParticlesJS: {
                             ...defaultConfig,
+                            cameraControls: {
+                                ...defaultConfig.cameraControls,
+                                autoRotate: false,
+                                resetCameraFlag: true,
+                            },
                             dimension: '2D',
-                            showCube: false,
                             lines: {
                                 ...defaultConfig.lines,
                                 minDistance: 110,
@@ -54,22 +59,60 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
                             },
                             particles: {
                                 ...defaultConfig.particles,
+                                boundingBox: 'canvas',
                                 count: 300,
                                 maxSize: 50,
                                 minSize: 20,
                                 shape: 'circle',
-                                boundingBox: 'canvas',
                                 visible: true,
                             },
+                            showCube: false,
+                        },
+                        Snowfall: {
+                            ...defaultConfig,
+                            boundaryType: 'passthru',
                             cameraControls: {
                                 ...defaultConfig.cameraControls,
                                 autoRotate: false,
                                 resetCameraFlag: true,
                             },
+                            dimension: '3D',
+                            direction: {
+                                ...defaultConfig.direction,
+                                xMax: 0.3,
+                                xMin: -0.6,
+                                yMax: -0.6,
+                                yMin: -1,
+                                zMax: 0.3,
+                                zMin: -0.6,
+                            },
+                            lines: {
+                                ...defaultConfig.lines,
+                                visible: false,
+                            },
+                            particles: {
+                                ...defaultConfig.particles,
+                                boundingBox: 'canvas',
+                                color: '#ffffff',
+                                colorMode: 'solid',
+                                count: 2500,
+                                maxSize: 25,
+                                minSize: 1,
+                                shape: 'circle',
+                                transparency: 0.9,
+                                visible: true,
+                            },
+                            showCube: false,
+                            velocity: 2,
                         },
                         Whirlpool: {
                             ...defaultConfig,
-                            velocity: 10,
+                            cameraControls: {
+                                ...defaultConfig.cameraControls,
+                                autoRotate: true,
+                                autoRotateSpeed: 3,
+                                resetCameraFlag: false,
+                            },
                             lines: {
                                 ...defaultConfig.lines,
                                 visible: false,
@@ -80,228 +123,185 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
                                 maxSize: 140,
                                 shape: 'circle',
                             },
-                            cameraControls: {
-                                ...defaultConfig.cameraControls,
-                                autoRotate: true,
-                                autoRotateSpeed: 3,
-                                resetCameraFlag: false,
-                            },
-                        },
-                        Snowfall: {
-                            ...defaultConfig,
-                            showCube: false,
-                            dimension: '3D',
-                            velocity: 2,
-                            boundaryType: 'passthru',
-                            direction: {
-                                ...defaultConfig.direction,
-                                xMin: -0.6,
-                                xMax: 0.3,
-                                yMin: -1,
-                                yMax: -0.6,
-                                zMin: -0.6,
-                                zMax: 0.3,
-                            },
-                            lines: {
-                                ...defaultConfig.lines,
-                                visible: false,
-                            },
-                            particles: {
-                                ...defaultConfig.particles,
-                                colorMode: 'solid',
-                                color: '#ffffff',
-                                transparency: 0.9,
-                                shape: 'circle',
-                                boundingBox: 'canvas',
-                                count: 2500,
-                                minSize: 1,
-                                maxSize: 25,
-                                visible: true,
-                            },
-                            cameraControls: {
-                                ...defaultConfig.cameraControls,
-                                autoRotate: false,
-                                resetCameraFlag: true,
-                            },
+                            velocity: 10,
                         },
                     },
                 ]}
-                onUpdate={handleDatUpdate}
             />
-            <DatBoolean path="particles.visible" label="Show Particles" />
-            <DatBoolean path="lines.visible" label="Show Lines" />
-            <DatBoolean path="showCube" label="Show Cube" />
+            <DatBoolean label="Show Particles" path="particles.visible" />
+            <DatBoolean label="Show Lines" path="lines.visible" />
+            <DatBoolean label="Show Cube" path="showCube" />
             <DatSelect
                 label="Dimsion"
-                path="dimension"
                 options={['2D', '3D']}
+                path="dimension"
             />
             <DatSelect
                 label="Boundary Type"
-                path="boundaryType"
                 options={['bounce', 'passthru']}
+                path="boundaryType"
             />
             <DatNumber
-                path="velocity"
                 label="Velocity"
-                min={0}
                 max={30}
+                min={0}
+                path="velocity"
                 step={0.1}
             />
 
-            <DatFolder title="Direction" closed={false}>
+            <DatFolder closed={false} title="Direction">
                 <DatNumber
-                    path="direction.xMin"
                     label="X Min"
-                    min={-1}
                     max={1}
+                    min={-1}
+                    path="direction.xMin"
                     step={0.1}
                 />
                 <DatNumber
-                    path="direction.xMax"
                     label="X Max"
-                    min={-1}
                     max={1}
+                    min={-1}
+                    path="direction.xMax"
                     step={0.1}
                 />
 
                 <DatNumber
-                    path="direction.yMin"
                     label="Y Min"
-                    min={-1}
                     max={1}
+                    min={-1}
+                    path="direction.yMin"
                     step={0.1}
                 />
                 <DatNumber
-                    path="direction.yMax"
                     label="Y Max"
-                    min={-1}
                     max={1}
+                    min={-1}
+                    path="direction.yMax"
                     step={0.1}
                 />
 
                 <DatNumber
-                    path="direction.zMin"
                     label="Z Min"
-                    min={-1}
                     max={1}
+                    min={-1}
+                    path="direction.zMin"
                     step={0.1}
                 />
                 <DatNumber
-                    path="direction.zMax"
                     label="Z Max"
+                    max={1}
                     min={-1}
-                    max={1}
+                    path="direction.zMax"
                     step={0.1}
                 />
             </DatFolder>
 
-            <DatFolder title="Lines" closed={false}>
+            <DatFolder closed={false} title="Lines">
                 <DatSelect
+                    label="Color Mode"
+                    options={['rainbow', 'solid']}
                     path="lines.colorMode"
-                    label="Color Mode"
-                    options={['rainbow', 'solid']}
                 />
-                <DatColor path="lines.color" label="Solid Color" />
+                <DatColor label="Solid Color" path="lines.color" />
                 <DatNumber
-                    path="lines.transparency"
                     label="Transparency"
-                    min={0.1}
                     max={0.9}
+                    min={0.1}
+                    path="lines.transparency"
                     step={0.1}
                 />
                 <DatNumber
-                    path="lines.minDistance"
                     label="Min Distance"
-                    min={10}
                     max={250}
+                    min={10}
+                    path="lines.minDistance"
                     step={1}
                 />
-                <DatBoolean path="limitConnections" label="Limit Connections" />
+                <DatBoolean label="Limit Connections" path="limitConnections" />
                 <DatNumber
-                    path="maxConnections"
                     label="Max Connections"
-                    min={0}
                     max={30}
+                    min={0}
+                    path="maxConnections"
                     step={1}
                 />
             </DatFolder>
 
-            <DatFolder title="Particles" closed={false}>
+            <DatFolder closed={false} title="Particles">
                 <DatSelect
-                    path="particles.colorMode"
                     label="Color Mode"
                     options={['rainbow', 'solid']}
+                    path="particles.colorMode"
                 />
-                <DatColor path="particles.color" label="Solid Color" />
+                <DatColor label="Solid Color" path="particles.color" />
                 <DatNumber
-                    path="particles.transparency"
                     label="Transparency"
-                    min={0}
                     max={1}
+                    min={0}
+                    path="particles.transparency"
                     step={0.1}
                 />
                 <DatNumber
-                    path="particles.count"
                     label="Particle Count"
-                    min={0}
                     max={5500}
+                    min={0}
+                    path="particles.count"
                     step={1}
                 />
                 <DatNumber
-                    path="particles.minSize"
                     label="Min Size"
-                    min={0}
                     max={400}
+                    min={0}
+                    path="particles.minSize"
                     step={1}
                 />
                 <DatNumber
-                    path="particles.maxSize"
                     label="Max Size"
-                    min={0}
                     max={400}
+                    min={0}
+                    path="particles.maxSize"
                     step={1}
                 />
                 <DatSelect
                     label="Bounding Box"
-                    path="particles.boundingBox"
                     options={['canvas', 'cube']}
+                    path="particles.boundingBox"
                 />
                 <DatSelect
                     label="Shape"
-                    path="particles.shape"
                     options={['circle', 'square']}
+                    path="particles.shape"
                 />
             </DatFolder>
 
-            <DatFolder title="Camera Controls" closed={false}>
-                <DatBoolean path="cameraControls.enabled" label="Enable" />
+            <DatFolder closed={false} title="Camera Controls">
+                <DatBoolean label="Enable" path="cameraControls.enabled" />
                 <DatBoolean
-                    path="cameraControls.enableDamping"
                     label="Damping"
+                    path="cameraControls.enableDamping"
                 />
                 <DatNumber
-                    path="cameraControls.dampingFactor"
                     label="Damping Factor"
-                    min={0}
                     max={1}
+                    min={0}
+                    path="cameraControls.dampingFactor"
                     step={0.05}
                 />
-                <DatBoolean path="cameraControls.enableZoom" label="Zoom" />
+                <DatBoolean label="Zoom" path="cameraControls.enableZoom" />
                 <DatBoolean
-                    path="cameraControls.autoRotate"
                     label="Auto Rotate"
+                    path="cameraControls.autoRotate"
                 />
                 <DatNumber
-                    path="cameraControls.autoRotateSpeed"
                     label="Rotate Speed"
-                    min={0}
                     max={10}
+                    min={0}
+                    path="cameraControls.autoRotateSpeed"
                     step={0.1}
                 />
                 <DatBoolean
-                    path="cameraControls.resetCameraFlag"
                     label="Reset Cam Flag"
+                    path="cameraControls.resetCameraFlag"
                 />
             </DatFolder>
         </DatGui>
