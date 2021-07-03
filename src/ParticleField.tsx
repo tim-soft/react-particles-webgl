@@ -65,16 +65,18 @@ const ParticleField = ({
 
     // Setup camera
     controlsRef.current = useMemo(() => {
-        // const aspectRatio = size.width / size.height;
+        const aspectRatio = size.width / size.height;
         // Calculates the proper FOV for 2D particle field to
         // perfectly fill canvas
-        // const cameraFOV =
-        //     2 *
-        //     Math.atan(size.width / aspectRatio / (2 * distToParticles)) *
-        //     (180 / Math.PI);
+        const cameraFOV =
+            2 *
+            Math.atan(size.width / aspectRatio / (2 * distToParticles)) *
+            (180 / Math.PI);
 
-        // camera.fov = cameraFOV;
-        // camera.aspect = aspectRatio;
+        // @ts-expect-error
+        camera.fov = cameraFOV;
+        // @ts-expect-error
+        camera.aspect = aspectRatio;
         camera.near = 1;
         // Allow field to stay in view while zooming really far out
         camera.far = 10000;
