@@ -2,13 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import Highlight from 'react-highlight';
 import stringifyObject from 'stringify-object';
+import type { ParticlesConfig } from 'react-particles-webgl';
+
+type Props = {
+    datConfig: ParticlesConfig;
+};
 
 /**
  * A code viewer which pretty prints the current ParticleField config
  *
  * @param {object} datConfig The current configuration of the ParticleField
  */
-const ConfigViewer = ({ datConfig }) => (
+const ConfigViewer = ({ datConfig }: Props) => (
     <ConfigContainer>
         <HighlightStyles>
             <Highlight className="javascript">

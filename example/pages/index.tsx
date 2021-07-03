@@ -1,7 +1,10 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import ParticleField, { defaultConfig } from 'react-particles-webgl';
+import ParticleField, {
+    ParticlesConfig,
+    defaultConfig,
+} from 'react-particles-webgl';
 import { DatUI, PerformanceStats } from '../components';
 
 /**
@@ -10,7 +13,8 @@ import { DatUI, PerformanceStats } from '../components';
  * Includes a config panel and performance monitor
  */
 const ParticlesDemo = () => {
-    const [datConfig, setDatConfig] = React.useState(defaultConfig);
+    const [datConfig, setDatConfig] =
+        React.useState<ParticlesConfig>(defaultConfig);
 
     return (
         <Container>

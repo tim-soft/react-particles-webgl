@@ -1,17 +1,40 @@
 /* eslint-disable no-shadow */
 import React, { useRef, useMemo } from 'react';
-import { AdditiveBlending } from 'three';
+import { AdditiveBlending, BufferGeometry, Vector3 } from 'three';
 import { useRender, useThree } from 'react-three-fiber';
 import OrbitControls from 'three-orbitcontrols';
 import animate from './lib/animate';
 import computeLines from './lib/computeLines';
 import computeParticles from './lib/computeParticles';
-import type { Config } from './types/config';
+import type * as ConfigTypes from './types/config';
 
 // Default Cube dimensions
 const r = 400;
 
-type Props = Omit<Required<Config>, 'antialias'>;
+type Props = Omit<Required<ConfigTypes.Config>, 'antialias'>;
+
+type Animation = {
+    boundaryType: ConfigTypes.BoundaryType;
+    bounds: {
+        xBounds: number;
+        yBounds: number;
+        zBounds: number;
+    };
+    limitConnections: ConfigTypes.Lines['limitConnections'];
+    lineColors: Float32Array;
+    lineMeshGeometry: BufferGeometry;
+    linePositions: Float32Array;
+    maxConnections: ConfigTypes.Lines['maxConnections'];
+    minDistance: ConfigTypes.Lines['minDistance'];
+    particleCount: ConfigTypes.Particles['count'];
+    particlePositions: Float32Array;
+    particlesData: {
+        numConnections: number;
+        velocity: Vector3;
+    }[];
+    pointCloudGeometry: any;
+    showLines: ConfigTypes.Lines['visible'];
+};
 
 /**
  * Creates a particle cloud with various config options
@@ -26,8 +49,8 @@ const ParticleField = ({
     showCube,
     velocity,
 }: Props) => {
-    const controlsRef = useRef(0);
-    const animation = useRef(0);
+    const controlsRef = useRef<{ dispose: () => void; update: () => void }>();
+    const animation = useRef<Animation>();
     const group = useRef();
 
     const { camera, canvas, gl, size } = useThree();
@@ -42,16 +65,16 @@ const ParticleField = ({
 
     // Setup camera
     controlsRef.current = useMemo(() => {
-        const aspectRatio = size.width / size.height;
+        // const aspectRatio = size.width / size.height;
         // Calculates the proper FOV for 2D particle field to
         // perfectly fill canvas
-        const cameraFOV =
-            2 *
-            Math.atan(size.width / aspectRatio / (2 * distToParticles)) *
-            (180 / Math.PI);
+        // const cameraFOV =
+        //     2 *
+        //     Math.atan(size.width / aspectRatio / (2 * distToParticles)) *
+        //     (180 / Math.PI);
 
-        camera.fov = cameraFOV;
-        camera.aspect = aspectRatio;
+        // camera.fov = cameraFOV;
+        // camera.aspect = aspectRatio;
         camera.near = 1;
         // Allow field to stay in view while zooming really far out
         camera.far = 10000;
@@ -126,9 +149,12 @@ const ParticleField = ({
     // useRender() contents are called in a requestAnimationFrame()
     useRender(() => {
         // Enables damping of OrbitControls
-        controlsRef.current.update();
-        // Animate current state of particles + lines
-        animate(animation.current);
+        controlsRef.current?.update();
+
+        if (animation.current) {
+            // Animate current state of particles + lines
+            animate(animation.current);
+        }
     });
 
     return (
@@ -145,9 +171,10 @@ const ParticleField = ({
                                 transparent
                                 wireframe
                             />
+                            {/* @ts-ignore */}
                             <boxBufferGeometry
-                                attach="geometry"
                                 args={[r, r, r]}
+                                attach="geometry"
                             />
                         </mesh>
                     </boxHelper>

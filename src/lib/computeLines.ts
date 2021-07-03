@@ -2,6 +2,7 @@ import {
     AdditiveBlending,
     BufferAttribute,
     BufferGeometry,
+    DynamicDrawUsage,
     ShaderMaterial,
 } from 'three';
 import {
@@ -15,7 +16,17 @@ type ComputeLinesParams = {
     particles: Particles;
 };
 
-const computeLines = ({ lines, particles }: ComputeLinesParams) => {
+type ComputeLines = [
+    BufferGeometry,
+    ShaderMaterial,
+    Float32Array,
+    Float32Array
+];
+
+const computeLines = ({
+    lines,
+    particles,
+}: ComputeLinesParams): ComputeLines => {
     const { count } = particles;
     const { color, colorMode, transparency, visible } = lines;
 
@@ -34,13 +45,13 @@ const computeLines = ({ lines, particles }: ComputeLinesParams) => {
     const positions = new Float32Array(segments * 3);
     const colors = new Float32Array(segments * 3);
 
-    lineMeshGeometry.addAttribute(
+    lineMeshGeometry.setAttribute(
         'position',
-        new BufferAttribute(positions, 3).setDynamic(true)
+        new BufferAttribute(positions, 3).setUsage(DynamicDrawUsage)
     );
-    lineMeshGeometry.addAttribute(
+    lineMeshGeometry.setAttribute(
         'color',
-        new BufferAttribute(colors, 3).setDynamic(true)
+        new BufferAttribute(colors, 3).setUsage(DynamicDrawUsage)
     );
     lineMeshGeometry.computeBoundingSphere();
     lineMeshGeometry.setDrawRange(0, 0);

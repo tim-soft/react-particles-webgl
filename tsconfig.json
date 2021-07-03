@@ -19,7 +19,7 @@
         "rootDir": "src",
         "target": "ES5",
         "isolatedModules": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
     },
     "include": ["src"],
     "exclude": ["node_modules", "dist", "example", "src/__tests__"]

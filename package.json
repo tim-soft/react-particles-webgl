@@ -20,6 +20,7 @@
     "main": "dist/index.cjs.js",
     "module": "dist/index.es.js",
     "jsnext:main": "dist/index.es.js",
+    "types": "dist/index.d.ts",
     "engines": {
         "node": ">=8",
         "npm": ">=5"
@@ -71,6 +72,7 @@
         "@rollup/plugin-commonjs": "^19.0.0",
         "@rollup/plugin-node-resolve": "^13.0.0",
         "@types/jest": "^26.0.23",
+        "@types/lodash.merge": "^4.6.6",
         "@types/react": "^17.0.9",
         "@types/react-dom": "^17.0.6",
         "@types/three": "^0.129.1",

@@ -5,6 +5,12 @@ import { Transition, animated } from '@react-spring/web';
 import Scrollbar from './components/Scrollbars';
 import ConfigViewer from './components/ConfigViewer';
 import DatUIPane from './components/DatUIPane';
+import type { ParticlesConfig } from 'react-particles-webgl';
+
+type Props = {
+    datConfig: ParticlesConfig;
+    handleDatUpdate: (config: ParticlesConfig) => void;
+};
 
 /**
  * A DatGUI for tweaking the ParticleField settings
@@ -12,115 +18,93 @@ import DatUIPane from './components/DatUIPane';
  * @param {object} datConfig current configuration for particle field
  * @param {function} handleDatUpdate a function for writing the current state of config UI to ParticleField
  */
-class DatUI extends React.Component {
-    constructor(props) {
-        super(props);
+const DatUI = ({ datConfig, handleDatUpdate }: Props) => {
+    const [isOpen, setIsOpen] = React.useState(true);
+    const [showConfig, setShowConfig] = React.useState(false);
 
-        this.state = {
-            isOpen: true,
-            showConfig: false,
-        };
-    }
-
-    render() {
-        const { isOpen, showConfig } = this.state;
-        const { datConfig, handleDatUpdate } = this.props;
-
-        return (
-            <StyledScrollWrapper>
-                <ControlContainer>
-                    <ControlButton
-                        onClick={() =>
-                            this.setState({
-                                isOpen: true,
-                                showConfig: !showConfig,
-                            })
-                        }
-                    >
-                        Config
-                    </ControlButton>
-                    <ControlButton
-                        onClick={() => this.setState({ isOpen: !isOpen })}
-                    >
-                        Show/Hide
-                    </ControlButton>
-                </ControlContainer>
-                <Transition
-                    enter={{ opacity: 1 }}
-                    from={{ opacity: 0 }}
-                    items={isOpen}
-                    leave={{ opacity: 0 }}
+    return (
+        <StyledScrollWrapper>
+            <ControlContainer>
+                <ControlButton
+                    onClick={() => {
+                        setIsOpen(true);
+                        setShowConfig(!showConfig);
+                    }}
                 >
-                    {({ opacity }, isOpen) =>
-                        isOpen && (
-                            <animated.div
-                                style={{
-                                    opacity,
-                                }}
-                            >
-                                <StyledScrollbar>
-                                    <ScrollbarContentContainer>
-                                        <Transition
-                                            enter={{ opacity: 1 }}
-                                            from={{
-                                                opacity: 0,
-                                                position: 'absolute',
-                                            }}
-                                            initial={{
-                                                opacity: 1,
-                                                position: 'absolute',
-                                            }}
-                                            items={showConfig}
-                                            leave={{ opacity: 0 }}
-                                        >
-                                            {(
-                                                { opacity, position },
-                                                showConfig
-                                            ) =>
-                                                showConfig ? (
-                                                    <animated.div
-                                                        style={{
-                                                            opacity,
-                                                            position,
-                                                            width: '100%',
-                                                        }}
-                                                    >
-                                                        <ConfigViewer
-                                                            datConfig={
-                                                                datConfig
-                                                            }
-                                                        />
-                                                    </animated.div>
-                                                ) : (
-                                                    <animated.div
-                                                        style={{
-                                                            opacity,
-                                                            position,
-                                                            width: '100%',
-                                                        }}
-                                                    >
-                                                        <DatUIPane
-                                                            datConfig={
-                                                                datConfig
-                                                            }
-                                                            handleDatUpdate={
-                                                                handleDatUpdate
-                                                            }
-                                                        />
-                                                    </animated.div>
-                                                )
-                                            }
-                                        </Transition>
-                                    </ScrollbarContentContainer>
-                                </StyledScrollbar>
-                            </animated.div>
-                        )
-                    }
-                </Transition>
-            </StyledScrollWrapper>
-        );
-    }
-}
+                    Config
+                </ControlButton>
+                <ControlButton onClick={() => setIsOpen(!isOpen)}>
+                    Show/Hide
+                </ControlButton>
+            </ControlContainer>
+            <Transition
+                enter={{ opacity: 1 }}
+                from={{ opacity: 0 }}
+                items={isOpen}
+                leave={{ opacity: 0 }}
+            >
+                {({ opacity }, isOpen) =>
+                    isOpen && (
+                        <animated.div
+                            style={{
+                                opacity,
+                            }}
+                        >
+                            <StyledScrollbar>
+                                <ScrollbarContentContainer>
+                                    <Transition
+                                        enter={{ opacity: 1 }}
+                                        from={{
+                                            opacity: 0,
+                                            position: 'absolute',
+                                        }}
+                                        initial={{
+                                            opacity: 1,
+                                            position: 'absolute',
+                                        }}
+                                        items={showConfig}
+                                        leave={{ opacity: 0 }}
+                                    >
+                                        {({ opacity, position }, showConfig) =>
+                                            showConfig ? (
+                                                <animated.div
+                                                    style={{
+                                                        opacity,
+                                                        position,
+                                                        width: '100%',
+                                                    }}
+                                                >
+                                                    <ConfigViewer
+                                                        datConfig={datConfig}
+                                                    />
+                                                </animated.div>
+                                            ) : (
+                                                <animated.div
+                                                    style={{
+                                                        opacity,
+                                                        position,
+                                                        width: '100%',
+                                                    }}
+                                                >
+                                                    <DatUIPane
+                                                        datConfig={datConfig}
+                                                        handleDatUpdate={
+                                                            handleDatUpdate
+                                                        }
+                                                    />
+                                                </animated.div>
+                                            )
+                                        }
+                                    </Transition>
+                                </ScrollbarContentContainer>
+                            </StyledScrollbar>
+                        </animated.div>
+                    )
+                }
+            </Transition>
+        </StyledScrollWrapper>
+    );
+};
 
 export default DatUI;
 

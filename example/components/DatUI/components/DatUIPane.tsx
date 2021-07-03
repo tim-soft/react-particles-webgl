@@ -7,8 +7,13 @@ import DatGui, {
     DatPresets,
     DatColor,
 } from '@tim-soft/react-dat-gui';
-import { defaultConfig } from 'react-particles-webgl';
+import { ParticlesConfig, defaultConfig } from 'react-particles-webgl';
 import DatContainer from './DatContainer';
+
+type Props = {
+    datConfig: ParticlesConfig;
+    handleDatUpdate: (config: ParticlesConfig) => void;
+};
 
 /**
  * The DatUI config window
@@ -16,7 +21,7 @@ import DatContainer from './DatContainer';
  * @param {object} datConfig current configuration for particle field
  * @param {function} handleDatUpdate a function for writing the current state of config UI to ParticleField
  */
-const DatUIPane = ({ datConfig, handleDatUpdate }) => (
+const DatUIPane = ({ datConfig, handleDatUpdate }: Props) => (
     <DatContainer>
         <DatGui data={datConfig} onUpdate={handleDatUpdate}>
             <DatPresets

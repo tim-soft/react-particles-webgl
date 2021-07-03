@@ -2,6 +2,7 @@ import {
     AdditiveBlending,
     BufferAttribute,
     BufferGeometry,
+    DynamicDrawUsage,
     ShaderMaterial,
     Vector3,
 } from 'three';
@@ -12,7 +13,7 @@ import {
 import type { Dimension, Direction, Particles } from '../types/config';
 
 type ComputeParticlesParams = {
-    devicePixelRatio: string;
+    devicePixelRatio: number;
     dimension: Dimension;
     direction: Direction;
     particles: Particles;
@@ -24,6 +25,21 @@ type ComputeParticlesParams = {
     velocity: number;
 };
 
+type ComputeParticles = [
+    pointCloudGeometry: BufferGeometry,
+    pointMaterial: ShaderMaterial,
+    particlesData: {
+        numConnections: number;
+        velocity: Vector3;
+    }[],
+    particlePositions: Float32Array,
+    bounds: {
+        xBounds: number;
+        yBounds: number;
+        zBounds: number;
+    }
+];
+
 const computeParticles = ({
     devicePixelRatio,
     dimension,
@@ -32,7 +48,7 @@ const computeParticles = ({
     r,
     size,
     velocity,
-}: ComputeParticlesParams) => {
+}: ComputeParticlesParams): ComputeParticles => {
     const {
         boundingBox,
         color,
@@ -99,13 +115,13 @@ const computeParticles = ({
     }
 
     pointCloudGeometry.setDrawRange(0, count);
-    pointCloudGeometry.addAttribute(
+    pointCloudGeometry.setAttribute(
         'position',
-        new BufferAttribute(particlePositions, 3).setDynamic(true)
+        new BufferAttribute(particlePositions, 3).setUsage(DynamicDrawUsage)
     );
-    pointCloudGeometry.addAttribute(
+    pointCloudGeometry.setAttribute(
         'size',
-        new BufferAttribute(particleSizes, 1).setDynamic(true)
+        new BufferAttribute(particleSizes, 1).setUsage(DynamicDrawUsage)
     );
 
     // Material for particle, use shaders to morph shape and color

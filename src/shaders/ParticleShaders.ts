@@ -44,7 +44,7 @@ const rainbowVertextColors = `
 type GetParticleVertexShaderParams = {
     color: string;
     colorMode: ColorMode;
-    devicePixelRatio: string;
+    devicePixelRatio: number;
 };
 /**
  * Generates a vertex shader for a particle system

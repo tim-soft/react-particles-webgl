@@ -26,22 +26,26 @@ const ParticleCanvas = ({ config }: Props) => {
 
     if (!clientSide) return null;
 
+    const { antialias = false, ...particleFieldConfig } = merge(
+        {},
+        initialConfig,
+        config
+    ) as Required<Config>;
+
     return (
         <Canvas
             gl={{
-                antialias: Object.prototype.hasOwnProperty.call(
-                    config,
-                    'antialias'
-                )
-                    ? config.antialias
-                    : initialConfig.antialias,
+                // @ts-expect-error
+                antialias,
             }}
         >
-            <ParticleField {...merge({}, initialConfig, config)} />
+            <ParticleField {...particleFieldConfig} />
         </Canvas>
     );
 };
 
 export { ParticleCanvas as default, initialConfig as defaultConfig };
+
+export type ParticlesConfig = Config;
 
 // export const defaultConfig = { ...initialConfig };
