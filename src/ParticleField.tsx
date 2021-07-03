@@ -34,7 +34,7 @@ const ParticleField = ({
     // Scale rendering automatically to window DPI
     // Pass this value to fragment shaders: gl_PointSize needs to scale against this value
     // https://threejs.org/docs/#api/en/renderers/WebGLRenderer.setPixelRatio
-    const devicePixelRatio = window.devicePixelRatio.toFixed(1);
+    const devicePixelRatio = Number(window.devicePixelRatio.toFixed(1));
     gl.setPixelRatio(devicePixelRatio);
 
     // Default distance from camera to particle field

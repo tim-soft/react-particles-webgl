@@ -55,7 +55,6 @@
         ]
     },
     "peerDependencies": {
-        "prop-types": ">=15.5.4",
         "react": ">=16.8",
         "react-dom": ">=16.8",
         "three": ">=0.100"
@@ -78,7 +77,6 @@
         "@typescript-eslint/eslint-plugin": "^4.26.0",
         "@typescript-eslint/parser": "^4.26.0",
         "babel-eslint": "10.1.0",
-        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "cross-env": "^7.0.3",
         "eslint": "^7.28.0",
         "eslint-config-prettier": "^8.3.0",

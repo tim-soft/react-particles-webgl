@@ -15,9 +15,9 @@ class FPSStats extends Component {
         // eslint-disable-next-line no-undef
         const currentTime = performance.now();
         this.state = {
+            fps: [],
             frames: 0,
             prevTime: currentTime,
-            fps: [],
         };
     }
 

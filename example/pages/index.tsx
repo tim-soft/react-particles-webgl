@@ -2,44 +2,32 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import styledNormalize from 'styled-normalize';
 import ParticleField, { defaultConfig } from 'react-particles-webgl';
-import { DatUI, PerformanceStats } from './components';
+import { DatUI, PerformanceStats } from '../components';
 
 /**
  * A demo showcasing react-particles-webgl
  *
  * Includes a config panel and performance monitor
  */
-export default class ParticlesDemo extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            datConfig: defaultConfig,
-        };
-    }
+const ParticlesDemo = () => {
+    const [datConfig, setDatConfig] = React.useState(defaultConfig);
 
-    handleDatUpdate = (datConfig) => this.setState({ datConfig });
+    return (
+        <Container>
+            {/* Adds some basic body styles */}
+            <DefaultStyles />
 
-    render() {
-        const { datConfig } = this.state;
+            {/* FPS Counter */}
+            {/* <PerformanceStats /> */}
+            {/* Config GUI */}
+            <DatUI datConfig={datConfig} handleDatUpdate={setDatConfig} />
+            {/* Particle Canvas */}
+            <ParticleField config={datConfig} />
+        </Container>
+    );
+};
 
-        return (
-            <Container>
-                {/* Adds some basic body styles */}
-                <DefaultStyles />
-
-                {/* FPS Counter */}
-                <PerformanceStats />
-                {/* Config GUI */}
-                <DatUI
-                    datConfig={datConfig}
-                    handleDatUpdate={this.handleDatUpdate}
-                />
-                {/* Particle Canvas */}
-                <ParticleField config={datConfig} />
-            </Container>
-        );
-    }
-}
+export default ParticlesDemo;
 
 /**
  * Adds global styles and normalize.css to the entire app

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import DatGui, {
     DatBoolean,
     DatNumber,
@@ -307,10 +306,5 @@ const DatUIPane = ({ datConfig, handleDatUpdate }) => (
         </DatGui>
     </DatContainer>
 );
-
-DatUIPane.propTypes = {
-    datConfig: PropTypes.object.isRequired,
-    handleDatUpdate: PropTypes.func.isRequired,
-};
 
 export default DatUIPane;

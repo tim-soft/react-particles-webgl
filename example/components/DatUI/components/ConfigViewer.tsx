@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Highlight from 'react-highlight';
 import stringifyObject from 'stringify-object';
@@ -15,7 +14,7 @@ const ConfigViewer = ({ datConfig }) => (
             <Highlight className="javascript">
                 {`/**
  * Tim Ellenberger
- * 
+ *
  * `}
                 <StyledCommentLink
                     href="https://github.com/tim-soft/react-particles-webgl#usage"
@@ -35,10 +34,6 @@ const config = ${stringifyObject(datConfig, {
         </HighlightStyles>
     </ConfigContainer>
 );
-
-ConfigViewer.propTypes = {
-    datConfig: PropTypes.object.isRequired,
-};
 
 export default ConfigViewer;
 

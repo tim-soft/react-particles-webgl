@@ -16,13 +16,13 @@ export default {
     input: './src/index.tsx',
     output: [
         {
-            exports: 'default',
+            exports: 'named',
             file: pkg.main,
             format: 'cjs',
             sourcemap: true,
         },
         {
-            exports: 'default',
+            exports: 'named',
             file: pkg.module,
             format: 'es',
             sourcemap: true,
@@ -40,6 +40,6 @@ export default {
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
         }),
         terser(),
-        filesize(),
+        // filesize(),
     ],
 };
