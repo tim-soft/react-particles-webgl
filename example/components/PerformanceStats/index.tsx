@@ -9,7 +9,10 @@ import styled from 'styled-components';
  * The FPS measurement comes from requestAnimationFrame and performance.now()
  * https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
  */
-class FPSStats extends Component {
+class FPSStats extends Component<
+    any,
+    { fps: number[]; frames: number; prevTime: number }
+> {
     constructor(props) {
         super(props);
         // eslint-disable-next-line no-undef
@@ -20,6 +23,8 @@ class FPSStats extends Component {
             prevTime: currentTime,
         };
     }
+
+    afRequest: number;
 
     componentDidMount() {
         const onRequestAnimationFrame = () => {
@@ -53,8 +58,10 @@ class FPSStats extends Component {
 
         // Calculate FPS every second
         if (currentTime > prevTime + 1000) {
-            let fps = ((frames * 1000) / (currentTime - prevTime)).toFixed(1);
-            fps = this.state.fps.concat(fps);
+            const currentFps = Number(
+                ((frames * 1000) / (currentTime - prevTime)).toFixed(1)
+            );
+            const fps = this.state.fps.concat(currentFps);
 
             // Set new frame time
             this.setState({

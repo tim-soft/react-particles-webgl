@@ -1,11 +1,19 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import styled, { createGlobalStyle } from 'styled-components';
 import styledNormalize from 'styled-normalize';
 import ParticleField, {
     ParticlesConfig,
     defaultConfig,
 } from 'react-particles-webgl';
-import { DatUI, PerformanceStats } from '../components';
+import { DatUI } from '../components';
+
+const PerformanceStats = dynamic(
+    () => import('../components/PerformanceStats'),
+    {
+        ssr: false,
+    }
+);
 
 /**
  * A demo showcasing react-particles-webgl
@@ -22,7 +30,7 @@ const ParticlesDemo = () => {
             <DefaultStyles />
 
             {/* FPS Counter */}
-            {/* <PerformanceStats /> */}
+            <PerformanceStats />
             {/* Config GUI */}
             <DatUI datConfig={datConfig} handleDatUpdate={setDatConfig} />
             {/* Particle Canvas */}
