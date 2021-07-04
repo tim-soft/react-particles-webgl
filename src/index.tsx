@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import { Canvas } from '@react-three/fiber';
 import merge from 'lodash.merge';
 import ParticleField from './ParticleField';
@@ -19,13 +19,6 @@ type Props = {
  * @see https://timellenberger.com/particles
  */
 const ParticleCanvas = ({ config }: Props) => {
-    const [clientSide, setClientSide] = useState(false);
-    useEffect(() => {
-        setClientSide(true);
-    }, []);
-
-    if (!clientSide) return null;
-
     const { antialias = false, ...particleFieldConfig } = merge(
         {},
         initialConfig,
