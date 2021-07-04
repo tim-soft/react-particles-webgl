@@ -145,6 +145,7 @@ const ParticleField = ({
         <scene>
             <group>
                 <OrbitControls {...cameraControls} />
+
                 {/* Bounding box that particles exist inside of */}
                 {showCube && (
                     <boxHelper>
@@ -156,7 +157,6 @@ const ParticleField = ({
                                 transparent
                                 wireframe
                             />
-                            {/* @ts-ignore */}
                             <boxBufferGeometry
                                 args={[r, r, r]}
                                 attach="geometry"
@@ -164,6 +164,7 @@ const ParticleField = ({
                         </mesh>
                     </boxHelper>
                 )}
+
                 {/* Lines connecting particles */}
                 {lines && lines.visible && (
                     <lineSegments
