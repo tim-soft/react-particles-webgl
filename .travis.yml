@@ -1,18 +1,18 @@
 language: node_js
 node_js:
-  - 'node'
-  - 'lts/*'
-cache: yarn
-install:
-  - yarn install
-  - yarn link
-  - cd example
-  - yarn link react-particles-webgl
-  - yarn install
-script:
-  - yarn test
-  - yarn build
+    - 'lts/*'
+cache:
+    yarn: true
+    directories:
+        - node_modules
+install: yarn install
+jobs:
+    include:
+        - stage: lint
+          script: yarn lint
+        - stage: build
+          script: yarn build
 branches:
-  only: master
+    only: master
 notifications:
-  email: false
+    email: false

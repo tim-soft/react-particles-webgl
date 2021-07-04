@@ -5,9 +5,11 @@
 node_modules
 
 # builds
+coverage
 build
 dist
 .rpt2_cache
+.next
 
 # misc
 .DS_Store
@@ -16,7 +18,6 @@ dist
 .env.development.local
 .env.test.local
 .env.production.local
-.vscode
 
 npm-debug.log*
 yarn-debug.log*

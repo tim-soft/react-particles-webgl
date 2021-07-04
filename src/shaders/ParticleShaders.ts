@@ -1,18 +1,26 @@
-import hexRgb from 'hex-rgb';
-import isHex from 'is-hexcolor';
+import { hexToRgb, isValidHex } from '../lib/hexUtils';
+import type { ColorMode, ParticleShape } from '../types/config';
+
+type GenColorFromHexParams = {
+    color: string;
+};
 
 /**
  * Converts a hex color to gl_FragColor format
  *
  * @param {string} color A hex color
  */
-const genColorFromHex = ({ color }) => {
-  if (!isHex(color)) return `1, 1, 1`;
+const genColorFromHex = ({ color }: GenColorFromHexParams) => {
+    if (!isValidHex(color)) return `1, 1, 1`;
 
-  const { red, green, blue } = hexRgb(color);
-  return `${(red / 255).toFixed(2)}, ${(green / 255).toFixed(2)}, ${(
-    blue / 255
-  ).toFixed(2)}`;
+    const { blue, green, red } = hexToRgb(color);
+    return `${(red / 255).toFixed(2)}, ${(green / 255).toFixed(2)}, ${(
+        blue / 255
+    ).toFixed(2)}`;
+};
+
+type SolidVertexColorsParams = {
+    color: string;
 };
 
 /**
@@ -20,7 +28,7 @@ const genColorFromHex = ({ color }) => {
  *
  * @param {string} color A hex color
  */
-const solidVertexColors = ({ color }) => `
+const solidVertexColors = ({ color }: SolidVertexColorsParams) => `
   vColor = vec3(${genColorFromHex({ color })});
 `;
 
@@ -32,6 +40,11 @@ const rainbowVertextColors = `
   vColor = vec3( normalize( abs( worldPosition.xyz ) ));
 `;
 
+type GetParticleVertexShaderParams = {
+    color: string;
+    colorMode: ColorMode;
+    devicePixelRatio: number;
+};
 /**
  * Generates a vertex shader for a particle system
  *
@@ -39,10 +52,10 @@ const rainbowVertextColors = `
  * and change them as they move
  */
 export const getParticleVertexShader = ({
-  colorMode,
-  color,
-  devicePixelRatio
-}) => `
+    color,
+    colorMode,
+    devicePixelRatio,
+}: GetParticleVertexShaderParams) => `
 // Size attribute for particle geometry
 attribute float size;
 
@@ -51,7 +64,9 @@ varying vec3 vColor;
 
 void main() {
   vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-  gl_PointSize = size * ( 300.0 / -mvPosition.z ) * ${devicePixelRatio};
+  gl_PointSize = size * ( 300.0 / -mvPosition.z ) * ${devicePixelRatio.toFixed(
+      2
+  )};
   gl_Position = projectionMatrix * mvPosition;
 
   ${colorMode === 'rainbow' ? rainbowVertextColors : ''}
@@ -70,13 +85,21 @@ if (r > 1.0) {
 }
 `;
 
+type GetParticleFragmentShader = {
+    particleShape: ParticleShape;
+    transparency: number;
+};
+
 /**
  * Applies a shape to each particle
  *
  * @param {String} particleShape Either 'circle' or 'square'
  * @param {Number} transparency The alpha channel rgba value for particles
  */
-export const getParticleFragmentShader = ({ particleShape, transparency }) => `
+export const getParticleFragmentShader = ({
+    particleShape,
+    transparency,
+}: GetParticleFragmentShader) => `
 // Color from uniforms arg
 uniform vec3 color;
 

@@ -1,48 +1,40 @@
 {
-  "name": "react-particles-webgl-example",
-  "homepage": "https://tim-soft.github.io/react-particles-webgl",
-  "version": "0.0.0",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "@tim-soft/react-dat-gui": "^4.0.11",
-    "prop-types": "^15.6.2",
-    "react": "link:../node_modules/react",
-    "react-dom": "link:../node_modules/react-dom",
-    "react-highlight": "^0.12.0",
-    "react-particles-webgl": "link:..",
-    "react-scripts": "^3.1.2",
-    "react-scrollbars-custom": "4.0.20",
-    "react-spring": "^8.0.23",
-    "stringify-object": "^3.3.0",
-    "styled-components": "^4.4.0",
-    "styled-normalize": "^8.0.6",
-    "three": "link:../node_modules/three"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
-  },
-  "jest": {
-    "preset": "jest-puppeteer"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "react-particles-webgl-example",
+    "homepage": "https://tim-soft.github.io/react-particles-webgl",
+    "version": "0.0.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "@tim-soft/react-dat-gui": "^4.0.11",
+        "next": "^11.0.1",
+        "react": "link:../node_modules/react",
+        "react-dom": "link:../node_modules/react-dom",
+        "react-highlight": "^0.12.0",
+        "react-particles-webgl": "link:..",
+        "react-scrollbars-custom": "4.0.25",
+        "react-spring": "^9.2.3",
+        "stringify-object": "^3.3.0",
+        "styled-components": "^5.3.0",
+        "styled-normalize": "^8.0.7",
+        "three": "link:../node_modules/three"
+    },
+    "scripts": {
+        "dev": "next",
+        "start": "next start",
+        "build": "next build"
+    },
+    "jest": {
+        "preset": "jest-puppeteer"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "jest": "24.9.0",
-    "jest-puppeteer": "4.3.0",
-    "puppeteer": "^1.20.0"
-  }
+    "devDependencies": {
+        "jest": "27.0.6",
+        "jest-puppeteer": "4.3.0",
+        "puppeteer": "^1.20.0"
+    }
 }

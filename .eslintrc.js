@@ -1,40 +1,79 @@
+/* eslint-disable sort-keys */
 /**
  * Configure ESLint
  *
  * https://eslint.org/docs/user-guide/configuring
  */
 module.exports = {
-  parser: 'babel-eslint',
-  extends: ['airbnb', 'prettier', 'prettier/react', 'plugin:import/warnings'],
-  env: {
-    es6: true
-  },
-  plugins: ['prettier', 'import', 'react-hooks'],
-  globals: {
-    document: true,
-    window: true,
-    process: true
-  },
-  parserOptions: {
-    sourceType: 'module'
-  },
-  rules: {
-    'react/forbid-prop-types': 0,
-    'react/jsx-filename-extension': 0,
-    'react/react-in-jsx-scope': 0,
-    'class-methods-use-this': 0,
-    'no-unused-expressions': ['error', { allowTaggedTemplates: true }],
-    'react/no-unused-prop-types': 0,
-    'consistent-return': 0,
-    'jsx-a11y/anchor-is-valid': 0,
-    'import/no-extraneous-dependencies': 0,
-    'prettier/prettier': 'error',
-    'react/destructuring-assignment': 0,
-    'react/jsx-props-no-spreading': 0,
-    'react/static-property-placement': 0,
-    // Enforce React Hooks rules
-    // https://www.npmjs.com/package/eslint-plugin-react-hooks
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
-  }
+    env: {
+        browser: true,
+        es6: true,
+        jest: true,
+    },
+    extends: [
+        'plugin:react/recommended',
+        'plugin:import/warnings',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended',
+        'prettier',
+    ],
+    globals: {
+        document: true,
+        window: true,
+    },
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        sourceType: 'module',
+    },
+    plugins: [
+        'prettier',
+        'react',
+        'react-hooks',
+        'import',
+        'sort-destructure-keys',
+        '@typescript-eslint',
+    ],
+    root: true,
+    rules: {
+        // Enforce React Hooks rules
+        // https://www.npmjs.com/package/eslint-plugin-react-hooks
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
+
+        'sort-destructure-keys/sort-destructure-keys': [
+            'error',
+            { caseSensitive: false },
+        ],
+        'sort-keys': ['error', 'asc', { caseSensitive: false, natural: false }],
+        'sort-vars': [
+            'error',
+            {
+                ignoreCase: true,
+            },
+        ],
+        'react/jsx-sort-props': ['error', { ignoreCase: true }],
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/member-ordering': [
+            'error',
+            {
+                default: {
+                    order: 'alphabetically',
+                },
+                classes: {
+                    order: 'as-written',
+                },
+            },
+        ],
+    },
+    settings: {
+        'import/resolver': {
+            node: true,
+            'eslint-import-resolver-typescript': true,
+        },
+        react: {
+            version: 'detect',
+        },
+    },
 };
