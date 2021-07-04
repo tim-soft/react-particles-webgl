@@ -1,12 +1,12 @@
 /* eslint-disable no-shadow */
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { AdditiveBlending, BufferGeometry, Vector3 } from 'three';
-import { useRender, useThree } from 'react-three-fiber';
-import OrbitControls from 'three-orbitcontrols';
+import { useFrame, useThree } from '@react-three/fiber';
 import animate from './lib/animate';
 import computeLines from './lib/computeLines';
 import computeParticles from './lib/computeParticles';
 import type * as ConfigTypes from './types/config';
+import { OrbitControls } from '@react-three/drei';
 
 // Default Cube dimensions
 const r = 400;
@@ -49,11 +49,9 @@ const ParticleField = ({
     showCube,
     velocity,
 }: Props) => {
-    const controlsRef = useRef<{ dispose: () => void; update: () => void }>();
     const animation = useRef<Animation>();
-    const group = useRef();
 
-    const { camera, canvas, gl, size } = useThree();
+    const { camera, gl, size } = useThree();
     // Scale rendering automatically to window DPI
     // Pass this value to fragment shaders: gl_PointSize needs to scale against this value
     // https://threejs.org/docs/#api/en/renderers/WebGLRenderer.setPixelRatio
@@ -64,7 +62,7 @@ const ParticleField = ({
     const distToParticles = 1750;
 
     // Setup camera
-    controlsRef.current = useMemo(() => {
+    useEffect(() => {
         const aspectRatio = size.width / size.height;
         // Calculates the proper FOV for 2D particle field to
         // perfectly fill canvas
@@ -81,22 +79,9 @@ const ParticleField = ({
         // Allow field to stay in view while zooming really far out
         camera.far = 10000;
 
-        // Remove event listeners from previous controls if they exist
-        // Set initial camera position if controls haven't taken over yet
-        if (controlsRef.current) controlsRef.current.dispose();
-        else camera.position.set(0, 0, distToParticles);
-
-        // Setup movement controls for mouse/touch to manipulate camera position
-        // https://threejs.org/docs/#examples/controls/OrbitControls
-        const controls = new OrbitControls(camera, canvas);
-
-        // Apply given settings to camera controls
-        Object.entries(cameraControls).forEach(([key, value]) => {
-            controls[key] = value;
-        });
-
-        return controls;
-    }, [camera, cameraControls, canvas, size.height, size.width]);
+        camera.position.set(0, 0, distToParticles);
+        camera.updateProjectionMatrix();
+    }, [camera, size.height, size.width]);
 
     // When the resetCameraFlag option is toggled to 'true', reset camera position
     if (cameraControls.resetCameraFlag === true) {
@@ -149,10 +134,7 @@ const ParticleField = ({
     // Direct access to render loop, executes on each frame
     // State changes must be passed into hook via refs
     // useRender() contents are called in a requestAnimationFrame()
-    useRender(() => {
-        // Enables damping of OrbitControls
-        controlsRef.current?.update();
-
+    useFrame(() => {
         if (animation.current) {
             // Animate current state of particles + lines
             animate(animation.current);
@@ -161,7 +143,8 @@ const ParticleField = ({
 
     return (
         <scene>
-            <group ref={group}>
+            <group>
+                <OrbitControls {...cameraControls} />
                 {/* Bounding box that particles exist inside of */}
                 {showCube && (
                     <boxHelper>

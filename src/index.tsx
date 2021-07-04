@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Canvas } from 'react-three-fiber';
+import { Canvas } from '@react-three/fiber';
 import merge from 'lodash.merge';
 import ParticleField from './ParticleField';
 import initialConfig from './config';
@@ -33,12 +33,7 @@ const ParticleCanvas = ({ config }: Props) => {
     ) as Required<Config>;
 
     return (
-        <Canvas
-            gl={{
-                // @ts-expect-error
-                antialias,
-            }}
-        >
+        <Canvas gl={{ antialias }}>
             <ParticleField {...particleFieldConfig} />
         </Canvas>
     );
@@ -47,5 +42,3 @@ const ParticleCanvas = ({ config }: Props) => {
 export { ParticleCanvas as default, initialConfig as defaultConfig };
 
 export type ParticlesConfig = Config;
-
-// export const defaultConfig = { ...initialConfig };
