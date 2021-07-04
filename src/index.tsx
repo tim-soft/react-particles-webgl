@@ -32,6 +32,6 @@ const ParticleCanvas = ({ config }: Props) => {
     );
 };
 
-export { ParticleCanvas as default, initialConfig as defaultConfig };
+export { ParticleCanvas as Particles, initialConfig as defaultConfig };
 
 export type ParticlesConfig = Config;

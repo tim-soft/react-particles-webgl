@@ -1,5 +1,4 @@
-import hexRgb from 'hex-rgb';
-import isHex from 'is-hexcolor';
+import { hexToRgb, isValidHex } from '../lib/hexUtils';
 import type { ColorMode, ParticleShape } from '../types/config';
 
 type GenColorFromHexParams = {
@@ -12,9 +11,9 @@ type GenColorFromHexParams = {
  * @param {string} color A hex color
  */
 const genColorFromHex = ({ color }: GenColorFromHexParams) => {
-    if (!isHex(color)) return `1, 1, 1`;
+    if (!isValidHex(color)) return `1, 1, 1`;
 
-    const { blue, green, red } = hexRgb(color);
+    const { blue, green, red } = hexToRgb(color);
     return `${(red / 255).toFixed(2)}, ${(green / 255).toFixed(2)}, ${(
         blue / 255
     ).toFixed(2)}`;

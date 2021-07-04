@@ -1,6 +1,6 @@
 {
     "name": "react-particles-webgl",
-    "version": "1.0.10",
+    "version": "1.1.0-beta.3",
     "description": "A 2D/3D particle library built on React, Three.js and WebGL",
     "author": "Tim Ellenberger <timellenberger@gmail.com>",
     "license": "MIT",
@@ -57,7 +57,7 @@
     "peerDependencies": {
         "react": ">=16.8",
         "react-dom": ">=16.8",
-        "three": ">=0.100"
+        "three": ">=0.128.0"
     },
     "devDependencies": {
         "@babel/core": "^7.14.3",
@@ -105,8 +105,6 @@
     "dependencies": {
         "@react-three/drei": "^7.0.6",
         "@react-three/fiber": "^7.0.2",
-        "hex-rgb": "^5.0.0",
-        "is-hexcolor": "^1.0.0",
         "lodash.merge": "^4.6.2"
     }
 }

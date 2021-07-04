@@ -40,6 +40,6 @@ export default {
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
         }),
         terser(),
-        // filesize(),
+        filesize(),
     ],
 };

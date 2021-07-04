@@ -2,7 +2,8 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import styled, { createGlobalStyle } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import ParticleField, {
+import {
+    Particles as ParticleField,
     ParticlesConfig,
     defaultConfig,
 } from 'react-particles-webgl';

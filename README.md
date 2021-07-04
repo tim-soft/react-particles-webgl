@@ -36,16 +36,19 @@ yarn add react-particles-webgl three
 
 ## Usage
 
-```jsx
+```tsx
 import React from 'react';
-import ParticleField from 'react-particles-webgl';
+import {
+    Particles as ParticleField,
+    ParticlesConfig,
+} from 'react-particles-webgl';
 
 /**
  * The default configuation for the ParticleField component
  *
  * Any option passed in via props will overwrite the default config
  */
-const config = {
+const config: ParticlesConfig = {
     // Display reference cube, useful for orienting the field
     showCube: true,
     // '2D' or '3D' particle field
