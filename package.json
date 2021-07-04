@@ -33,7 +33,6 @@
         "lint:eslint": "eslint \"**/*.*\"",
         "lint:prettier": "prettier --check \"**/*.*\"",
         "lint:ts": "npx tsc --noEmit -p .",
-        "test": "cd example && yarn test",
         "build": "rollup -c && yarn run build:types",
         "build:types": "tsc --project tsconfig.buildtypes.json --emitDeclarationOnly",
         "start": "rollup -c -w",

@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React, { useRef, useMemo, useEffect } from 'react';
 import { AdditiveBlending, BufferGeometry, Vector3 } from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
@@ -83,7 +82,7 @@ const ParticleField = ({
         camera.updateProjectionMatrix();
     }, [camera, size.height, size.width]);
 
-    // When the resetCameraFlag option is toggled to 'true', reset camera positio
+    // When the resetCameraFlag option is toggled to 'true', reset camera position
     useEffect(() => {
         if (cameraControls.resetCameraFlag === true) {
             camera.position.set(0, 0, 1750);
