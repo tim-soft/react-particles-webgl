@@ -83,10 +83,12 @@ const ParticleField = ({
         camera.updateProjectionMatrix();
     }, [camera, size.height, size.width]);
 
-    // When the resetCameraFlag option is toggled to 'true', reset camera position
-    if (cameraControls.resetCameraFlag === true) {
-        camera.position.set(0, 0, 1750);
-    }
+    // When the resetCameraFlag option is toggled to 'true', reset camera positio
+    useEffect(() => {
+        if (cameraControls.resetCameraFlag === true) {
+            camera.position.set(0, 0, 1750);
+        }
+    }, [camera, cameraControls.resetCameraFlag]);
 
     // Compute lines between points
     const [lineMeshGeometry, lineMeshMaterial, linePositions, lineColors] =
